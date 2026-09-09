@@ -1,0 +1,345 @@
+/* --- CSS VARIABLEN FÜR LIGHT & DARK MODE --- */
+:root {
+    --bg-color: #f5f5f7;
+    --text-color: #1d1d1f;
+    --nav-bg: rgba(255, 255, 255, 0.7);
+    --card-bg: #ffffff;
+    --subtitle-color: #86868b;
+    --card-shadow: rgba(0,0,0,0.04);
+}
+
+/* Wenn das "dark" Attribut aktiv ist, ändern sich die Farben */
+[data-theme="dark"] {
+    --bg-color: #000000;
+    --text-color: #f5f5f7;
+    --nav-bg: rgba(28, 28, 30, 0.7);
+    --card-bg: #1c1c1e;
+    --subtitle-color: #98989d;
+    --card-shadow: rgba(255,255,255,0.02);
+}
+
+/* --- SEITENÜBERGÄNGE (FADE IN) --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Wenn das "dark" Attribut aktiv ist, ändern sich die Farben */
+[data-theme="dark"] {
+    --bg-color: #000000; /* Typisches Apple-Tiefschwarz */
+    --text-color: #f5f5f7;
+    --nav-bg: rgba(28, 28, 30, 0.7); /* Dunkles Milchglas */
+    --card-bg: #1c1c1e; /* Dunkelgraue Karten */
+    --subtitle-color: #98989d;
+    --card-shadow: rgba(255,255,255,0.02);
+}
+
+/* --- GRUNDEINSTELLUNGEN --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color); /* Nutzt jetzt die Variable */
+    color: var(--text-color); /* Nutzt jetzt die Variable */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    transition: background-color 0.4s ease, color 0.4s ease; /* Weicher Übergang beim Umschalten */
+}
+
+/* --- NAVIGATION --- */
+nav {
+    width: 100%;
+    padding: 15px 0;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(150,150,150,0.1);
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover, nav a.active { opacity: 1; }
+
+/* --- ICON-BUTTON FÜR DARK MODE --- */
+#theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color); /* Das Icon übernimmt automatisch die Textfarbe! */
+    padding: 8px;
+    border-radius: 50%; /* Macht den Klick-Bereich schön rund */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: rgba(150, 150, 150, 0.2); /* Sanfter grauer Hintergrund beim Hover */
+}
+
+/* Logik: Welches Icon wird gezeigt? */
+/* Standard (Light Mode): Sonne verstecken, Mond zeigen */
+#icon-sun { display: none; }
+#icon-moon { display: block; }
+
+/* Wenn der Dark Mode aktiv ist: Sonne zeigen, Mond verstecken */
+[data-theme="dark"] #icon-sun { display: block; }
+[data-theme="dark"] #icon-moon { display: none; }
+
+/* --- INHALT --- */
+/* --- INHALT --- */
+.container { 
+    margin-top: 120px; 
+    width: 90%; 
+    max-width: 1000px; 
+    padding-bottom: 50px; 
+    animation: fadeIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards; /* HIER EINGEFÜGT */
+}
+h1 { font-size: 48px; font-weight: 700; letter-spacing: -1px; margin-bottom: 10px; text-align: center; }
+p.subtitle { font-size: 20px; color: var(--subtitle-color); text-align: center; margin-bottom: 50px; }
+h2 { font-size: 32px; font-weight: 600; letter-spacing: -0.5px; margin-top: 40px; }
+
+.btn {
+    display: inline-block;
+    background-color: #0071e3;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 980px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+.btn:hover { background-color: #0077ED; }
+
+/* --- KARTEN & BILDER --- */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+
+.card {
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 4px 20px var(--card-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+/* NEU: Das Styling für echte Bilder */
+.card-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Schneidet Bilder perfekt zu, ohne sie zu verzerren */
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* --- TAGS --- */
+.skill-tag {
+    display: inline-block;
+    background: var(--text-color);
+    color: var(--bg-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin: 5px;
+}
+
+/* --- FORMULAR FÜR KONTAKT --- */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--subtitle-color);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(150, 150, 150, 0.2);
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    background-color: var(--bg-color); /* Passt sich dem Dark Mode an */
+    color: var(--text-color); /* Passt sich dem Dark Mode an */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease, color 0.4s ease;
+}
+
+input::placeholder, textarea::placeholder {
+    color: var(--subtitle-color);
+    opacity: 0.7;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #0071e3;
+    box-shadow: 0 0 0 3px rgba(0,113,227,0.2);
+}
+
+/* --- INTERAKTIVER ZEITSTRAHL (TIMELINE) --- */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 60px auto;
+}
+
+/* Die vertikale Linie in der Mitte */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: rgba(150, 150, 150, 0.2);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    border-radius: 4px;
+}
+
+/* Der Container für jeden einzelnen Meilenstein */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    opacity: 0; /* Am Anfang unsichtbar für die Animation */
+    transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1); /* Butterweiche Animation */
+}
+
+/* Der kleine blaue Punkt auf der Linie */
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: -12px; /* Jetzt ist es mathematisch exakt in der Mitte */
+    background-color: var(--bg-color);
+    border: 4px solid #0071e3;
+    top: 35px;
+    border-radius: 50%;
+    z-index: 1;
+    transition: background-color 0.4s ease;
+}
+
+/* Elemente, die links stehen */
+.left {
+    left: 0;
+    transform: translateX(-50px); /* Sind anfangs nach links verschoben */
+}
+
+/* Elemente, die rechts stehen */
+.right {
+    left: 50%;
+    transform: translateX(50px); /* Sind anfangs nach rechts verschoben */
+}
+
+/* Punkt für rechte Elemente auf die linke Seite setzen */
+.right::after {
+    left: -12px;
+}
+
+/* Die magische Klasse, die per JavaScript hinzugefügt wird, wenn man scrollt */
+.timeline-item.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* --- HANDY-ANSICHT (Responsive Design) --- */
+@media screen and (max-width: 768px) {
+    .timeline::after { left: 31px; } /* Linie rutscht nach links */
+    .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+    .timeline-item::after { left: 21px; }
+    .left, .right { left: 0; transform: translateY(50px); } /* Animation kommt jetzt von unten */
+    .timeline-item.show { transform: translateY(0); }
+}
+
+/* --- FOOTER (FUßZEILE) --- */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: auto; /* Schiebt den Footer immer ans untere Ende */
+    border-top: 1px solid rgba(150, 150, 150, 0.1);
+    color: var(--subtitle-color);
+    font-size: 14px;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: var(--subtitle-color);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #0071e3; /* Wird beim Hover blau */
+}
+
+/* --- SKILL GRID (WERKZEUGKISTE) --- */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.skill-box {
+    background: var(--bg-color);
+    border: 1px solid rgba(150, 150, 150, 0.2);
+    border-radius: 12px;
+    padding: 20px 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: default; /* Zeigt an, dass man nicht klicken kann */
+}
+
+.skill-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--card-shadow);
+    border-color: #0071e3; /* Leuchtet Apple-Blau beim Hover */
+}
+
+.skill-icon {
+    font-size: 24px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.skill-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-color);
+}

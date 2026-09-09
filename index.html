@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Startseite | Mein Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Der blinkende Cursor für den Schreibmaschinen-Effekt */
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background-color: #0071e3;
+            vertical-align: text-bottom;
+            animation: blink 1s step-end infinite;
+            margin-left: 2px;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="zertifikate.html">Zertifikate</a>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="kontakt.html">Kontakt</a>
+        
+        <button id="theme-toggle" aria-label="Dark/Light Mode wechseln">
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <div class="container" style="text-align: center; margin-top: 25vh;">
+        <h1>Hi. Ich bin Leon.</h1>
+        
+        <!-- Hier tippt das JavaScript gleich den Text rein -->
+        <p class="subtitle">
+            <span id="typewriter"></span><span class="cursor"></span>
+        </p>
+        
+        <br>
+        <a href="projekte.html" class="btn">Meine Projekte ansehen</a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Leon. Alle Rechte vorbehalten.</p>
+        <div class="footer-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="kontakt.html">Impressum</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

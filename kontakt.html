@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="zertifikate.html">Zertifikate</a>
+        <a href="ueber-mich.html">Über mich</a>
+        <a href="kontakt.html" class="active">Kontakt</a>
+        
+        <!-- Unser neuer schicker Button -->
+        <button id="theme-toggle" aria-label="Dark/Light Mode wechseln">
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <div class="container">
+        <h1>Kontakt</h1>
+        <p class="subtitle">Lass uns in Verbindung treten.</p>
+
+        <!-- Die Kontakt-Karte (zentriert) -->
+        <div class="card" style="max-width: 500px; margin: 0 auto;">
+            <!-- Das Kontakt-Formular -->
+            <!-- Das 'action' Attribut schickt die Daten an Formspree -->
+            <form action="https://formspree.io/f/moeqyllb" method="POST">
+                
+                <label for="name">Dein Name</label>
+                <!-- Wichtig: 'name' Attribute hinzugefügt, damit Formspree weiß, was was ist -->
+                <input type="text" id="name" name="Name" placeholder="Wie heißt du?" required>
+
+                <label for="email">Deine E-Mail</label>
+                <input type="email" id="email" name="Email" placeholder="name@beispiel.de" required>
+
+                <label for="message">Nachricht</label>
+                <textarea id="message" name="Nachricht" rows="5" placeholder="Was gibt's Neues?" required></textarea>
+
+                <button type="submit" class="btn" style="width: 100%; border: none; cursor: pointer; font-size: 16px;">Nachricht senden</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Der Footer -->
+    <footer>
+        <p>&copy; 2026 Leon. Alle Rechte vorbehalten.</p>
+        <div class="footer-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="kontakt.html">Impressum</a>
+        </div>
+    </footer>
+
+    <!-- WICHTIG: Das Script lädt auch hier den Dark Mode! -->
+    <script src="script.js"></script>
+</body>
+</html>

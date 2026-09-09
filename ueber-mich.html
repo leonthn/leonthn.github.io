@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Über mich | Lebenslauf</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projekte.html">Projekte</a>
+        <a href="zertifikate.html">Zertifikate</a>
+        <a href="ueber-mich.html" class="active">Über mich</a>
+        <a href="kontakt.html">Kontakt</a>
+        
+        <button id="theme-toggle" aria-label="Dark/Light Mode wechseln">
+            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </button>
+    </nav>
+
+    <div class="container">
+        <h1>Mein Werdegang</h1>
+        <p class="subtitle">Meine schulische Laufbahn und bisherigen Meilensteine.</p>
+
+        <!-- Der interaktive Zeitstrahl -->
+        <div class="timeline">
+            
+            <!-- Meilenstein 1 (Links): Grundschule -->
+            <div class="timeline-item left">
+                <div class="card">
+                    <!-- Das Jahres-Badge -->
+                    <span class="skill-tag" style="background: rgba(0, 113, 227, 0.1); color: #0071e3; margin-left: 0; margin-bottom: 15px; font-weight: 600;">08.2015 – 07.2019</span>
+                    
+                    <h2 style="margin-top: 5px; font-size: 24px;">Die Anfänge</h2>
+                    <h3 style="font-size: 16px; color: var(--subtitle-color); margin-top: -10px;">74. Grundschule Dresden</h3>
+                    <p>Hier wurde der Grundstein gelegt. Während dieser Zeit begann sich auch meine Faszination für Computer und Technik langsam zu entwickeln, die mich bis heute begleitet.</p>
+                </div>
+            </div>
+            
+            <!-- Meilenstein 2 (Rechts): Start Gymnasium -->
+            <div class="timeline-item right">
+                <div class="card">
+                    <span class="skill-tag" style="background: rgba(0, 113, 227, 0.1); color: #0071e3; margin-left: 0; margin-bottom: 15px; font-weight: 600;">Seit 08.2019</span>
+                    
+                    <h2 style="margin-top: 5px; font-size: 24px;">Wechsel ans Gymnasium</h2>
+                    <h3 style="font-size: 16px; color: var(--subtitle-color); margin-top: -10px;">Ehrenfried-Walther-von-Tschirnhaus-Gymnasium Dresden</h3>
+                    <p>Beginn der Sekundarstufe. Durch den Informatikunterricht und eigene Projekte konnte ich mein technisches Wissen hier massiv ausbauen und erste wirtschaftliche Interessen verfolgen.</p>
+                </div>
+            </div>
+
+            <!-- Meilenstein 3 (Links): Komplexe Leistung (Schuljahr 24/25) -->
+            <div class="timeline-item left">
+                <div class="card">
+                    <span class="skill-tag" style="background: rgba(234, 67, 53, 0.1); color: #ea4335; margin-left: 0; margin-bottom: 15px; font-weight: 600;">10. Klasse (2024/25)</span>
+                    
+                    <h2 style="margin-top: 5px; font-size: 24px;">Wissenschaftliche Arbeit (KI)</h2>
+                    <h3 style="font-size: 16px; color: var(--subtitle-color); margin-top: -10px;">Komplexe Leistung</h3>
+                    <p>Verfassen meiner komplexen Leistung zum Thema <i>"KI-gestützte Hyperpersonalisierung in der Bildung und ihre Auswirkungen auf den Arbeitsmarkt"</i>. Dieser frühe Deep Dive hat meinen Blick für zukunftsweisende Technologien geschärft.</p>
+                </div>
+            </div>
+            
+            <!-- Meilenstein 4 (Rechts): Lehrerkarten (Schuljahr 25/26) -->
+            <div class="timeline-item right">
+                <div class="card">
+                    <span class="skill-tag" style="background: rgba(52, 168, 83, 0.1); color: #34a853; margin-left: 0; margin-bottom: 15px; font-weight: 600;">11. Klasse (2025/26)</span>
+                    
+                    <h2 style="margin-top: 5px; font-size: 24px;">Das Lehrerkarten-Projekt</h2>
+                    <h3 style="font-size: 16px; color: var(--subtitle-color); margin-top: -10px;">Praktisches Projektmanagement</h3>
+                    <p>In der 11. Klasse habe ich das "Lehrerkarten-Projekt" umgesetzt. Eine hervorragende Möglichkeit, Theorie in Praxis zu verwandeln und wertvolle Erfahrungen in der Organisation und Durchführung schulischer Initiativen zu sammeln.</p>
+                </div>
+            </div>
+
+            <!-- Meilenstein 5 (Links): Ausblick Abitur -->
+            <div class="timeline-item left">
+                <div class="card">
+                    <span class="skill-tag" style="background: var(--text-color); color: var(--bg-color); margin-left: 0; margin-bottom: 15px; font-weight: 600;">Voraussichtlich 07.2027</span>
+                    
+                    <h2 style="margin-top: 5px; font-size: 24px;">Abitur & Zukunft</h2>
+                    <h3 style="font-size: 16px; color: var(--subtitle-color); margin-top: -10px;">Leistungskurse: Deutsch & Englisch</h3>
+                    <p>Mein Ziel ist die Allgemeine Hochschulreife. Danach strebe ich ein duales Studium an, um meine Leidenschaft für Tech, Finanzen und Projektmanagement direkt im Arbeitsalltag einzusetzen.</p>
+                </div>
+            </div>
+
+        </div> <!-- Ende des Zeitstrahls -->
+
+        <!-- NEU: Die aufgeteilte Werkzeugkiste (Clean Icons) -->
+        <div style="margin-top: 80px;">
+            <h2 style="text-align: center; margin-bottom: 5px;">Kenntnisse & Fähigkeiten</h2>
+            <p class="subtitle" style="margin-bottom: 50px;">Mein Profil auf einen Blick.</p>
+
+            <!-- Kategorie 1: IT & Sprachen -->
+            <h3 style="font-size: 20px; color: var(--subtitle-color); border-bottom: 1px solid rgba(150,150,150,0.2); padding-bottom: 10px;">IT & Sprachen</h3>
+            <div class="skill-grid" style="margin-bottom: 50px;">
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">code</span>
+                    <span class="skill-name">Python (Basics)</span>
+                </div>
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">devices</span>
+                    <span class="skill-name">Digitale Tools</span>
+                </div>
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">chat</span>
+                    <span class="skill-name">Deutsch (C2)</span>
+                </div>
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">language</span>
+                    <span class="skill-name">Englisch (C1)</span>
+                </div>
+            </div>
+
+            <!-- Kategorie 2: Persönliche Stärken -->
+            <h3 style="font-size: 20px; color: var(--subtitle-color); border-bottom: 1px solid rgba(150,150,150,0.2); padding-bottom: 10px;">Persönliche Stärken</h3>
+            <div class="skill-grid" style="margin-bottom: 50px;">
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">psychology</span>
+                    <span class="skill-name">Analytisches Denken</span>
+                </div>
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">rocket_launch</span>
+                    <span class="skill-name">Eigeninitiative</span>
+                </div>
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">group</span>
+                    <span class="skill-name">Teamfähigkeit</span>
+                </div>
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">bolt</span>
+                    <span class="skill-name">Schnelle Auffassung</span>
+                </div>
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">checklist</span>
+                    <span class="skill-name">Organisation</span>
+                </div>
+            </div>
+
+            <!-- Kategorie 3: Interessen -->
+            <h3 style="font-size: 20px; color: var(--subtitle-color); border-bottom: 1px solid rgba(150,150,150,0.2); padding-bottom: 10px;">Interessen</h3>
+            <div class="skill-grid">
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">auto_awesome</span>
+                    <span class="skill-name">Künstliche Intelligenz</span>
+                </div>
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">terminal</span>
+                    <span class="skill-name">Softwareentwicklung</span>
+                </div>
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">trending_up</span>
+                    <span class="skill-name">Aktien & Finanzen</span>
+                </div>
+                <div class="skill-box">
+                    <span class="material-symbols-outlined skill-icon">directions_run</span>
+                    <span class="skill-name">Sport & Laufen</span>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- Ende des Haupt-Containers -->
+
+    <!-- Der Footer -->
+    <footer>
+        <p>&copy; 2026 Leon. Alle Rechte vorbehalten.</p>
+        <div class="footer-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="kontakt.html">Impressum</a>
+        </div>
+    </footer>
+
+    <!-- Wichtig: Script einbinden für die Scroll-Animation und den Dark Mode! -->
+    <script src="script.js"></script>
+</body>
+</html>
