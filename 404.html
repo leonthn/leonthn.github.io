@@ -2,51 +2,43 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Seite nicht gefunden | 404</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 – Seite nicht gefunden · Leon Thein</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+            document.documentElement.classList.add('no-intro');
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <nav>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+    <div class="grain" aria-hidden="true"></div>
 
-        <a href="index.html">Home</a>
-        <a href="projekte.html">Projekte</a>
-        <a href="zertifikate.html">Zertifikate</a>
-        <a href="ueber-mich.html">Über mich</a>
-        <a href="kontakt.html">Kontakt</a>
-        
-        <button id="theme-toggle" aria-label="Dark/Light Mode wechseln">
-            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        </button>
-    </nav>
+    <main class="nf hero" id="hero">
+        <canvas id="neural" aria-hidden="true"></canvas>
+        <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="hero-content" style="text-align:center;">
+            <div class="nf-code gradient-text reveal-hero" style="--d:0">404</div>
+            <h1 class="reveal-hero" style="--d:1">Hier ist nichts – noch nicht.</h1>
+            <p class="muted reveal-hero" style="--d:2">Diese Seite gibt es nicht (mehr). Vielleicht ist sie ja auf der Startseite gelandet.</p>
+            <div class="hero-cta reveal-hero" style="--d:3; justify-content:center; margin-top:28px;">
+                <a href="/" class="btn btn-primary magnetic"><span>Zur Startseite</span></a>
+                <a href="/#projekte" class="btn btn-ghost magnetic"><span>Projekte ansehen</span></a>
+            </div>
+        </div>
+    </main>
 
-
-    <div class="container" style="text-align: center; margin-top: 25vh;">
-        <h1 style="font-size: 80px; margin-bottom: 0;">404</h1>
-        <h2>Hoppla.</h2>
-        <p class="subtitle">Diese Seite haben wir leider nicht gefunden.</p>
-        
-        <br>
-        <a href="index.html" class="btn">Zurück zur Startseite</a>
-    </div>
-
-
-    <footer>
-        <p>&copy; 2026 Leon. Alle Rechte vorbehalten.</p>
-    </footer>
-
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>

@@ -2,125 +2,170 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Case Study: Lehrerkarten | Mein Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Case Study: Das Lehrerkarten-Projekt – Leon Thein</title>
+    <meta name="description" content="Wie aus einem Sammelkarten-Trend an der Schule über 15.000 verkaufte Karten und mehr als 10.000 € für die Abikasse wurden.">
+    <meta name="theme-color" content="#07070b">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script>
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+            document.documentElement.classList.add('no-intro');
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
-    <style>
-        
-        .metric-box {
-            text-align: center;
-            padding: 20px;
-            background: rgba(0, 113, 227, 0.05);
-            border: 1px solid rgba(0, 113, 227, 0.2);
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-        .metric-number {
-            font-size: 36px;
-            font-weight: 700;
-            color: #0071e3;
-            display: block;
-            margin-bottom: 5px;
-        }
-    </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projekte.html" class="active">Projekte</a>
-        <a href="zertifikate.html">Zertifikate</a>
-        <a href="ueber-mich.html">Über mich</a>
-        <a href="kontakt.html">Kontakt</a>
-        
-        <button id="theme-toggle" aria-label="Dark/Light Mode wechseln">
-            
-            <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        </button>
-    </nav>
+    <div class="scroll-progress" id="scroll-progress"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+    <div class="grain" aria-hidden="true"></div>
 
-    <div class="container">
-        
-        <!-- Zurück Button -->
-        <a href="projekte.html" style="color: var(--subtitle-color); text-decoration: none; display: flex; align-items: center; gap: 5px; margin-bottom: 30px;">
-            <span class="material-symbols-outlined" style="font-size: 18px;">arrow_back</span> Zurück zur Übersicht
+    <header class="nav" id="nav">
+        <a href="index.html" class="logo" aria-label="Startseite">
+            <span class="logo-mark">LT</span>
+            <span class="logo-text">Leon Thein</span>
         </a>
-
-        <h1 style="text-align: left; margin-bottom: 10px;">Das Lehrerkarten-Projekt</h1>
-        <p class="subtitle" style="text-align: left; margin-bottom: 40px;">Wie man mit einem Schultrend einen fünfstelligen Umsatz generiert.</p>
-
-        
-        <img src="lehrerkarten2.jpeg" alt="Lehrerkarten Projekt Detail" style="width: 100%; height: 400px; object-fit: cover; border-radius: 18px; margin-bottom: 50px; box-shadow: 0 10px 30px var(--card-shadow);">
-
-        <div class="grid">
-            
-            
-            <div class="card" style="grid-column: span 2;">
-                <h2>Die Herausforderung</h2>
-                <p>Die Finanzierung eines Abiballs ist für jeden Jahrgang eine gewaltige finanzielle Hürde. Statt auf klassische, oft wenig lukrative Kuchenbasare zu setzen, suchte ich nach einer innovativen, skalierbaren Lösung, die nicht nur Geld einbringt, sondern auch die Schulgemeinschaft stärkt.</p>
-                
-                <h2>Die Strategie & Umsetzung</h2>
-                <p>Die Lösung: Ein schulinterner Sammelkarten-Trend. In Kooperation mit dem Anbieter <strong>Lehrerkarten.de</strong> übernahm ich die eigenständige Organisation des Projekts.</p>
-                <p>Das Konzept funktioniert ähnlich wie bei bekannten Fußball-Sammelbildern: Schüler können blickdichte Karten-Packs (Booster) kaufen, in denen sich hochwertig gedruckte "Trading Cards" ihrer eigenen Lehrer befinden. Dies löste einen massiven Sammel- und Tausch-Hype auf dem gesamten Pausenhof aus.</p>
-                
-                <p><strong>Meine Aufgabenbereiche umfassten:</strong></p>
-                <ul style="color: var(--subtitle-color); line-height: 1.8;">
-                    <li>Projektplanung und Kommunikation mit der Lehrerschaft und Direktion.</li>
-                    <li>Organisation der Fotoshootings und Abstimmung des Karten-Designs.</li>
-                    <li>Planung und Durchführung von Marketing-Aktionen in der Schule (Plakate, Durchsagen).</li>
-                    <li>Koordination des Vertriebs, der Logistik und der Finanzen.</li>
-                </ul>
-            </div>
-
-            
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                <div class="card" style="padding: 20px;">
-                    <h3 style="margin-top: 0; font-size: 18px; border-bottom: 1px solid rgba(150,150,150,0.2); padding-bottom: 10px;">Projekt-Facts</h3>
-                    
-                    <div class="metric-box">
-                        <span class="metric-number">15.000+</span>
-                        <span style="font-size: 14px; color: var(--subtitle-color);">Verkaufte Karten</span>
-                    </div>
-                    
-                    <div class="metric-box">
-                        <span class="metric-number">> 10.000 €</span>
-                        <span style="font-size: 14px; color: var(--subtitle-color);">Generierter Umsatz</span>
-                    </div>
-
-                    <div style="margin-top: 30px;">
-                        <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Partner:</p>
-                        <span class="skill-tag">Lehrerkarten.de</span>
-                    </div>
-                </div>
-                
-                <div class="card" style="background-color: #0071e3; color: white;">
-                    <h3 style="margin-top: 0; color: white;">Fazit</h3>
-                    <p style="font-size: 14px; opacity: 0.9;">Das Projekt hat mir gezeigt, wie aus einer kreativen Idee, striktem Projektmanagement und gezieltem Marketing ein echtes, funktionierendes Geschäftsmodell entstehen kann.</p>
-                </div>
-            </div>
-
+        <nav class="nav-links" aria-label="Hauptnavigation">
+            <a href="index.html#about">Über mich</a>
+            <a href="index.html#projekte" class="active">Projekte</a>
+            <a href="index.html#werdegang">Werdegang</a>
+            <a href="index.html#zertifikate">Zertifikate</a>
+            <a href="index.html#kontakt">Kontakt</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="icon-btn" id="theme-toggle" aria-label="Hell/Dunkel umschalten">
+                <svg class="i-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                <svg class="i-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+            </button>
+            <button class="icon-btn menu-btn" id="menu-btn" aria-label="Menü öffnen" aria-expanded="false">
+                <span></span><span></span>
+            </button>
         </div>
+    </header>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html#about"><span class="mono">01</span>Über mich</a>
+        <a href="index.html#projekte"><span class="mono">02</span>Projekte</a>
+        <a href="index.html#werdegang"><span class="mono">03</span>Werdegang</a>
+        <a href="index.html#zertifikate"><span class="mono">04</span>Zertifikate</a>
+        <a href="index.html#kontakt"><span class="mono">05</span>Kontakt</a>
     </div>
 
-    
-    <footer>
-        <p>&copy; 2026 Leon. Alle Rechte vorbehalten.</p>
-        
+    <main>
+        <section class="case-hero">
+            <div class="container case-hero-inner">
+                <div class="card-fan" aria-hidden="true">
+                    <div class="tcard" style="--c1:#ff6fb5;--c2:#8b5cf6;--r:-14deg;--x:-70px"><span class="tc-no">007</span><span class="tc-img"></span><span class="tc-name"></span></div>
+                    <div class="tcard" style="--c1:#34d399;--c2:#0ea5e9;--r:10deg;--x:70px"><span class="tc-no">042</span><span class="tc-img"></span><span class="tc-name"></span></div>
+                    <div class="tcard" style="--c1:#60a5fa;--c2:#a78bfa;--r:-2deg;--x:0px"><span class="tc-no">001</span><span class="tc-img"></span><span class="tc-name"></span></div>
+                </div>
+                <a href="index.html#projekte" class="back-link reveal-hero" style="--d:0">← Zurück zu den Projekten</a>
+                <p class="eyebrow reveal-hero" style="--d:1"><span class="mono">Case Study</span> 11. Klasse · 2025/26</p>
+                <h1 class="case-title reveal-hero" style="--d:2">Das Lehrerkarten-<br><span class="gradient-text">Projekt.</span></h1>
+                <p class="case-lead reveal-hero" style="--d:3">Wie aus einem Sammelkarten-Trend an unserer Schule über 15.000 verkaufte Karten und mehr als 10.000&nbsp;€ für die Abikasse wurden.</p>
+                <div class="case-meta reveal-hero" style="--d:4">
+                    <div><span class="mono muted">Rolle</span><span>Projektleitung</span></div>
+                    <div><span class="mono muted">Partner</span><span>Lehrerkarten.de</span></div>
+                    <div><span class="mono muted">Bereiche</span><span>Planung · Marketing · Vertrieb · Finanzen</span></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="case-image reveal">
+                <img src="lehrerkarten2.jpeg" alt="Lange Schlange von Schülerinnen und Schülern am Verkaufsstand für die Lehrerkarten im Schulgebäude">
+            </div>
+
+            <div class="case-stats">
+                <div class="tile spotlight reveal">
+                    <p class="tile-label mono">Verkaufte Karten</p>
+                    <span class="stat-num"><span class="count" data-to="15000" data-sep=".">0</span>+</span>
+                </div>
+                <div class="tile spotlight reveal">
+                    <p class="tile-label mono">Umsatz</p>
+                    <span class="stat-num">&gt;<span class="count" data-to="10000" data-sep=".">0</span>&nbsp;€</span>
+                </div>
+                <div class="tile spotlight reveal">
+                    <p class="tile-label mono">Ziel</p>
+                    <span class="stat-num">Abiball</span>
+                </div>
+            </div>
+
+            <div class="case-body">
+                <aside class="case-toc" aria-label="Inhalt">
+                    <a href="#herausforderung">Die Herausforderung</a>
+                    <a href="#idee">Die Idee</a>
+                    <a href="#umsetzung">Die Umsetzung</a>
+                    <a href="#ergebnis">Das Ergebnis</a>
+                    <a href="#learnings">Was ich gelernt habe</a>
+                </aside>
+
+                <div class="case-content">
+                    <section id="herausforderung" class="reveal">
+                        <h2>Die Herausforderung</h2>
+                        <p>Einen Abiball zu finanzieren ist für jeden Jahrgang eine große Hürde. Die klassischen Wege – Kuchenbasar, Waffelverkauf – bringen viel Aufwand und wenig Geld. Ich wollte etwas, das <strong>skalierbar</strong> ist, richtig Geld einbringt und gleichzeitig die ganze Schule mitnimmt.</p>
+                    </section>
+
+                    <section id="idee" class="reveal">
+                        <h2>Die Idee</h2>
+                        <p>Ein schulinterner Sammelkarten-Trend – wie Fußball-Sammelbilder, nur mit <strong>unseren eigenen Lehrerinnen und Lehrern</strong> als Trading Cards. In Kooperation mit <strong>Lehrerkarten.de</strong> wurden blickdichte Booster-Packs produziert. Niemand weiß, wen er zieht, alle wollen tauschen – und genau das hat auf dem Pausenhof einen echten Hype ausgelöst.</p>
+                    </section>
+
+                    <section id="umsetzung" class="reveal">
+                        <h2>Die Umsetzung</h2>
+                        <p>Ich habe das Projekt eigenständig organisiert – von der ersten Anfrage bis zum letzten verkauften Pack.</p>
+                        <ol class="steps">
+                            <li><div><b>Planung &amp; Abstimmung</b>Projektplan, Gespräche mit Schulleitung und Kollegium, Einverständnis der Lehrkräfte.</div></li>
+                            <li><div><b>Fotoshootings &amp; Design</b>Organisation der Shootings und Abstimmung des Kartendesigns mit dem Partner.</div></li>
+                            <li><div><b>Marketing</b>Plakate, Durchsagen und Aktionen in der Schule, damit der Start richtig zündet.</div></li>
+                            <li><div><b>Vertrieb &amp; Finanzen</b>Verkaufsstände, Logistik, Kasse und Abrechnung – sauber dokumentiert für die Abikasse.</div></li>
+                        </ol>
+                    </section>
+
+                    <section id="ergebnis" class="reveal">
+                        <h2>Das Ergebnis</h2>
+                        <p>Über <strong>15.000 verkaufte Karten</strong> und mehr als <strong>10.000&nbsp;€ Umsatz</strong> für unseren Abi-Jahrgang. Vor allem aber: Ein Projekt, über das an der ganzen Schule gesprochen wurde – mit Schlangen am Verkaufsstand und Tauschbörsen in jeder Pause.</p>
+                        <figure class="reveal" style="margin:32px 0 0;">
+                            <img src="lehrerkarten1.jpeg" alt="Hunderte bunte Lehrerkarten auf einem Tisch beim Sortieren" loading="lazy" style="border-radius:22px;width:100%;max-height:520px;object-fit:cover;">
+                        </figure>
+                    </section>
+
+                    <section id="learnings" class="reveal">
+                        <h2>Was ich gelernt habe</h2>
+                        <blockquote class="quote">„Aus einer kreativen Idee, klarem Projektmanagement und gezieltem Marketing kann ein echtes, funktionierendes Geschäftsmodell werden.“</blockquote>
+                        <p style="margin-top:28px;">Ich habe gelernt, Verantwortung für Geld und Menschen zu übernehmen, mit Erwachsenen auf Augenhöhe zu verhandeln und den Überblick zu behalten, wenn viele Dinge gleichzeitig passieren. Genau diese Mischung aus Wirtschaft, Organisation und Technik will ich im dualen Studium weiter ausbauen.</p>
+                    </section>
+
+                    <a href="index.html#projekte" class="case-next reveal">
+                        <div>
+                            <p class="mono muted small">Weiter</p>
+                            <h3>Alle Projekte ansehen</h3>
+                        </div>
+                        <span class="btn btn-primary"><span>Zur Übersicht</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer" style="margin-top:120px;">
+        <div class="container footer-inner">
+            <div class="footer-row">
+                <p class="muted small">© <span id="year">2026</span> Leon Thein</p>
+                <a href="index.html#kontakt" class="muted small to-top">Kontakt →</a>
+            </div>
+        </div>
     </footer>
 
-    
+    <canvas id="confetti" aria-hidden="true"></canvas>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <script src="script.js"></script>
 </body>
 </html>
