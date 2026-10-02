@@ -22,7 +22,21 @@ const store = {
 let lang = root.dataset.lang === 'en' ? 'en' : 'de';
 let lenis = null;
 const frameHooks = [];
-const scroll = { y: window.scrollY, v: 0 };
+const scroll = { y: window.scrollY, v: 0, vh: window.innerHeight };
+
+// Positionen werden nur bei Größenänderungen gemessen, nie im laufenden Frame
+const measurers = [];
+let measureQueued = false;
+const docTop = el => el.getBoundingClientRect().top + window.scrollY;
+function remeasure() {
+    if (measureQueued) return;
+    measureQueued = true;
+    requestAnimationFrame(() => {
+        measureQueued = false;
+        scroll.vh = window.innerHeight;
+        measurers.forEach(fn => fn());
+    });
+}
 
 /* ---------- Text in Wörter / Buchstaben zerlegen ---------- */
 function wrapWords(el, make) {
@@ -118,6 +132,7 @@ function setOdo(el, value) {
     const oldLen = formatNumber(el).length;
     el.dataset.odo = value;
     if (formatNumber(el).length !== oldLen) buildOdo(el);
+    el.setAttribute('aria-label', formatNumber(el));
     rollOdo(el);
 }
 
@@ -163,7 +178,7 @@ function switchLang(next) {
 /* ---------- Smooth Scrolling ---------- */
 function initScroll() {
     if (window.Lenis && !reduced) {
-        lenis = new window.Lenis({ lerp: 0.09, smoothWheel: true, wheelMultiplier: 1 });
+        lenis = new window.Lenis({ lerp: 0.1, smoothWheel: true, wheelMultiplier: 1 });
         lenis.on('scroll', e => { scroll.v = e.velocity; });
     }
     let lastY = window.scrollY;
@@ -176,6 +191,12 @@ function initScroll() {
         requestAnimationFrame(frame);
     }
     requestAnimationFrame(frame);
+
+    addEventListener('resize', remeasure);
+    addEventListener('load', remeasure);
+    document.addEventListener('langchange', remeasure);
+    if (window.ResizeObserver) new ResizeObserver(remeasure).observe(document.body);
+    if (document.fonts) document.fonts.ready.then(remeasure);
 
     document.addEventListener('click', e => {
         const a = e.target.closest('a[href^="#"]');
@@ -276,9 +297,10 @@ function initCursor() {
     addEventListener('mousedown', () => cursor.classList.add('down'));
     addEventListener('mouseup', () => cursor.classList.remove('down'));
     frameHooks.push(() => {
-        x = lerp(x, mx, 0.2);
-        y = lerp(y, my, 0.2);
-        cursor.style.translate = `${x}px ${y}px`;
+        if (Math.abs(mx - x) < 0.1 && Math.abs(my - y) < 0.1) return;
+        x = lerp(x, mx, 0.22);
+        y = lerp(y, my, 0.22);
+        cursor.style.translate = `${x.toFixed(1)}px ${y.toFixed(1)}px`;
     });
     document.addEventListener('mouseover', e => {
         const labelled = e.target.closest('[data-cursor]');
@@ -364,7 +386,9 @@ function initGlobe() {
     const canvas = $('#globe');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    const N = 1500;
+    const N = 1100;
+    const BUCKETS = 8;
+    const buckets = Array.from({ length: BUCKETS }, () => []);
     const golden = Math.PI * (3 - Math.sqrt(5));
     const pts = [];
     for (let i = 0; i < N; i++) {
@@ -387,7 +411,7 @@ function initGlobe() {
         colors.accent = cs.getPropertyValue('--accent').trim();
     }
     function resize() {
-        dpr = Math.min(devicePixelRatio || 1, 2);
+        dpr = Math.min(devicePixelRatio || 1, 1.5);
         w = canvas.clientWidth; h = canvas.clientHeight;
         canvas.width = w * dpr; canvas.height = h * dpr;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -406,14 +430,28 @@ function initGlobe() {
         const R = Math.min(w, h) * 0.38 * (0.86 + 0.14 * ease);
         const cx = w / 2, cy = h / 2;
 
-        ctx.fillStyle = colors.text;
+        // Punkte nach Tiefe in wenige Gruppen sortieren und je Gruppe einmal füllen
+        for (const b of buckets) b.length = 0;
+        const cY = Math.cos(rotY), sY = Math.sin(rotY), cT = Math.cos(tilt), sT = Math.sin(tilt);
         for (let i = 0; i < N; i++) {
-            const [x, y, z] = project(pts[i]);
-            const front = z > 0;
-            const a = front ? 0.16 + 0.78 * z : 0.05 + 0.05 * (1 + z);
-            const s = front ? 0.8 + 1.4 * z : 0.6;
-            ctx.globalAlpha = a * ease;
-            ctx.fillRect(cx + x * R - s / 2, cy + y * R - s / 2, s, s);
+            const p = pts[i];
+            const x1 = p[0] * cY + p[2] * sY;
+            const z1 = -p[0] * sY + p[2] * cY;
+            const y = p[1] * cT - z1 * sT;
+            const z = p[1] * sT + z1 * cT;
+            const k = z <= 0 ? 0 : Math.min(BUCKETS - 1, 1 + Math.floor(z * (BUCKETS - 1)));
+            buckets[k].push(cx + x1 * R, cy + y * R);
+        }
+        ctx.fillStyle = colors.text;
+        for (let k = 0; k < BUCKETS; k++) {
+            const list = buckets[k];
+            if (!list.length) continue;
+            const z = k === 0 ? 0 : k / (BUCKETS - 1);
+            const s = k === 0 ? 0.6 : 0.8 + 1.4 * z;
+            ctx.globalAlpha = (k === 0 ? 0.07 : 0.16 + 0.78 * z) * ease;
+            ctx.beginPath();
+            for (let j = 0; j < list.length; j += 2) ctx.rect(list[j] - s / 2, list[j + 1] - s / 2, s, s);
+            ctx.fill();
         }
 
         // Umlaufbahn mit Satellit
@@ -591,11 +629,13 @@ function initStatement() {
     prepare();
     document.addEventListener('langchange', prepare);
     if (reduced) return;
-    let lastN = -1;
+    let lastN = -1, top = 0, height = 0;
+    measurers.push(() => { top = docTop(el); height = el.offsetHeight; });
     frameHooks.push(() => {
-        const r = el.getBoundingClientRect();
-        if (r.top > innerHeight || r.bottom < 0) return;
-        const p = clamp((innerHeight * 0.8 - r.top) / (r.height + innerHeight * 0.25));
+        const vh = scroll.vh;
+        const rTop = top - scroll.y;
+        if (rTop > vh || rTop + height < 0) return;
+        const p = clamp((vh * 0.8 - rTop) / (height + vh * 0.25));
         const n = Math.round(p * words.length);
         if (n === lastN) return;
         lastN = n;
@@ -627,7 +667,10 @@ function initTicker() {
     addEventListener('resize', fill);
     document.addEventListener('langchange', () => requestAnimationFrame(fill));
     if (reduced) return;
+    let visible = true;
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; }).observe(track.parentElement);
     frameHooks.push(() => {
+        if (!visible) return;
         const v = scroll.v || 0;
         if (Math.abs(v) > 0.5) dir = v > 0 ? 1 : -1;
         x -= (0.6 + Math.min(Math.abs(v) * 0.5, 30)) * dir;
@@ -662,8 +705,9 @@ function initWork() {
     const bar = $('#work-bar');
     const index = $('#work-index');
     const sticky = $('.work-sticky', section);
-    let dist = 0, enabled = false;
+    let dist = 0, enabled = false, last = -1;
 
+    let secTop = 0;
     function measure() {
         enabled = innerWidth > 900;
         if (!enabled) {
@@ -672,23 +716,22 @@ function initWork() {
             return;
         }
         dist = Math.max(0, track.scrollWidth - innerWidth);
-        section.style.height = (dist + sticky.offsetHeight) + 'px';
+        const h = (dist + sticky.offsetHeight) + 'px';
+        if (section.style.height !== h) section.style.height = h;
+        secTop = docTop(section);
+        last = -1;
     }
     measure();
-    addEventListener('resize', measure);
-    document.addEventListener('langchange', () => requestAnimationFrame(measure));
-    addEventListener('load', measure);
+    measurers.push(measure);
 
     const seen = new IntersectionObserver(entries => {
         entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('seen'); seen.unobserve(e.target); } });
     }, { threshold: 0.45 });
     $$('.project', track).forEach(p => seen.observe(p));
 
-    let last = -1;
     frameHooks.push(() => {
         if (!enabled) return;
-        const top = section.getBoundingClientRect().top;
-        const p = dist ? clamp(-top / dist) : 0;
+        const p = dist ? clamp((scroll.y - secTop) / dist) : 0;
         if (p === last) return;
         last = p;
         track.style.transform = `translate3d(${(-p * dist).toFixed(1)}px,0,0)`;
@@ -703,11 +746,13 @@ function initJourney() {
     const odo = $('#year-odo');
     const label = $('#year-label');
     if (!steps.length || !odo) return;
-    let current = null;
+    let current = null, tops = [];
+    measurers.push(() => { tops = steps.map(docTop); });
     function update() {
         let active = steps[0];
-        for (const s of steps) {
-            if (s.getBoundingClientRect().top < innerHeight * 0.55) active = s;
+        const line = scroll.y + scroll.vh * 0.55;
+        for (let i = 0; i < steps.length; i++) {
+            if (tops[i] < line) active = steps[i];
         }
         if (active === current) return;
         current = active;
