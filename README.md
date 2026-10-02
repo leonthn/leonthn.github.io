@@ -1,29 +1,30 @@
 # leonthn.github.io
 
-Meine persönliche Website – Leistungen, Projekte, Werdegang und Kontakt.
+Meine persönliche Website – Leistungen, Projekte, Werdegang, Kontakt und ein kleines Spiel.
 
 **➜ [leonthn.github.io](https://leonthn.github.io/)**
 
-## Aufbau
+## Seiten
 
 | Datei | Inhalt |
 |---|---|
-| `index.html` | Startseite |
+| `index.html` | Start mit Globus, Kurzvorstellung und Überblick |
+| `leistungen.html` | Websites für Vereine und Unternehmen, Ablauf, FAQ |
+| `projekte.html` | Projekte mit Filter |
 | `projekt-lehrerkarten.html` | Case Study zum Lehrerkarten-Projekt |
-| `style.css` | Design, Farben oben unter `:root` (dunkel) und `[data-theme="light"]` |
-| `script.js` | Animationen und Interaktionen |
-| `i18n.js` | Englische Texte (Deutsch steht direkt im HTML) |
-| `projekte.html`, `ueber-mich.html`, `zertifikate.html`, `kontakt.html` | Weiterleitungen, damit alte Links noch funktionieren |
+| `ueber-mich.html` | Interessen, Werdegang, Zertifikate |
+| `kontakt.html` | Kontaktformular (Formspree) |
+| `spiel.html` + `game.js` | **Stack** – Blöcke so genau wie möglich stapeln |
+
+`style.css` enthält das Design (Farben oben unter `:root` und `[data-theme="light"]`), `script.js` die Interaktionen, `i18n.js` die englischen Texte.
 
 ## Was drinsteckt
 
-- Interaktiver Punkt-Globus im Hero (Canvas, lässt sich mit der Maus drehen)
-- Smooth Scrolling mit [Lenis](https://github.com/darkroomengineering/lenis)
-- Projekte scrollen horizontal, die Jahreszahl im Werdegang läuft mit
-- Zählwerke, Text-Reveals, Laufband, das auf die Scrollgeschwindigkeit reagiert
-- Deutsch / Englisch, Hell / Dunkel
-- Suche mit ⌘K bzw. Strg+K
-- Kontaktformular über Formspree
+- Seitenwechsel über die View Transitions API, interne Seiten werden beim Überfahren vorgeladen
+- Punkt-Globus mit Dresden im Hero (Canvas, lässt sich drehen)
+- Animationen nur beim Einblenden, kein Scroll-Hijacking
+- Deutsch / Englisch, Hell / Dunkel, Suche mit ⌘K bzw. Strg+K
+- Stack: isometrisch gezeichnet, Überstände werden abgeschnitten, Rekord bleibt gespeichert
 
 Reines HTML, CSS und JavaScript ohne Build-Schritt, gehostet mit GitHub Pages.
 
