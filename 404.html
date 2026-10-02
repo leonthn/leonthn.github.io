@@ -3,42 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>404 – Seite nicht gefunden · Leon Thein</title>
+    <title>404 – Leon Thein</title>
     <meta name="robots" content="noindex">
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <script>
         (function () {
-            var t = null;
-            try { t = localStorage.getItem('theme'); } catch (e) {}
-            if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-            document.documentElement.setAttribute('data-theme', t);
-            document.documentElement.classList.add('no-intro');
+            var d = document.documentElement, t = null, l = null;
+            try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch (e) {}
+            if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            if (!l) l = (navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
+            d.setAttribute('data-theme', t);
+            d.setAttribute('data-lang', l);
         })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700;800&family=Instrument+Serif:ital@1&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;450;500;600&family=Geist+Mono:wght@300;400&family=Instrument+Serif:ital@1&display=swap">
     <link rel="stylesheet" href="/style.css">
 </head>
-<body>
-    <div class="cursor-dot" id="cursor-dot"></div>
-    <div class="cursor-ring" id="cursor-ring"></div>
+<body data-page="404">
+    <div class="curtain" id="curtain"></div>
+    <div class="cursor" id="cursor"><span id="cursor-label"></span></div>
     <div class="grain" aria-hidden="true"></div>
 
-    <main class="nf hero" id="hero">
-        <canvas id="neural" aria-hidden="true"></canvas>
-        <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="hero-content" style="text-align:center;">
-            <div class="nf-code gradient-text reveal-hero" style="--d:0">404</div>
-            <h1 class="reveal-hero" style="--d:1">Hier ist nichts – noch nicht.</h1>
-            <p class="muted reveal-hero" style="--d:2">Diese Seite gibt es nicht (mehr). Vielleicht ist sie ja auf der Startseite gelandet.</p>
-            <div class="hero-cta reveal-hero" style="--d:3; justify-content:center; margin-top:28px;">
-                <a href="/" class="btn btn-primary magnetic"><span>Zur Startseite</span></a>
-                <a href="/#projekte" class="btn btn-ghost magnetic"><span>Projekte ansehen</span></a>
+    <main class="nf">
+        <canvas id="globe" aria-hidden="true"></canvas>
+        <div class="wrap">
+            <p class="mono muted fade-in" style="--d:.2s" data-i18n="nf.title">Vom Weg abgekommen.</p>
+            <h1 class="fade-in" style="--d:.35s">404</h1>
+            <div class="nf-row fade-in" style="--d:.5s">
+                <p class="lead" data-i18n="nf.text">Diese Seite gibt es nicht (mehr).</p>
+                <a href="/" class="btn btn-solid magnetic"><span data-i18n="nf.home">Zur Startseite</span><span class="arrow">→</span></a>
             </div>
         </div>
     </main>
 
-    <script src="/script.js"></script>
+    <script src="/i18n.js" defer></script>
+    <script src="/script.js" defer></script>
 </body>
 </html>
