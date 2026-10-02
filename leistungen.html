@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Leistungen – Leon Thein</title>
+    <meta name="description" content="Websites für Vereine, Selbstständige und Unternehmen aus Dresden und Umgebung.">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta property="og:title" content="Leistungen – Leon Thein">
+    <meta property="og:description" content="Websites für Vereine, Selbstständige und Unternehmen aus Dresden und Umgebung.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script>
+        (function () {
+            var d = document.documentElement, t = null, l = null;
+            try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch (e) {}
+            if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            if (!l) l = (navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
+            d.setAttribute('data-theme', t);
+            d.setAttribute('data-lang', l);
+            d.classList.add('no-loader');
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;450;500;600&family=Geist+Mono:wght@300;400&family=Instrument+Serif:ital@1&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="leistungen">
+    <div class="cursor" id="cursor"><span id="cursor-label"></span></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="nav" id="nav">
+        <a href="index.html" class="brand" aria-label="Leon Thein – Start">
+            <span class="brand-mark">LT</span>
+            <span class="brand-text">Leon Thein</span>
+        </a>
+        <nav class="nav-links" aria-label="Navigation">
+            <a href="leistungen.html" class="active" aria-current="page" data-i18n="nav.services">Leistungen</a>
+            <a href="projekte.html" data-i18n="nav.work">Projekte</a>
+            <a href="ueber-mich.html" data-i18n="nav.about">Über mich</a>
+            <a href="spiel.html" data-i18n="nav.game">Spiel</a>
+            <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="pill-btn kbd-btn" id="palette-open" aria-label="Suche"><span id="kbd-label">⌘K</span></button>
+            <button class="pill-btn lang-btn" id="lang-btn" aria-label="Sprache wechseln / switch language"><b>DE</b><span>/</span><span>EN</span></button>
+            <button class="pill-btn theme-btn" id="theme-btn" aria-label="Hell/Dunkel">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
+            </button>
+            <button class="pill-btn menu-btn" id="menu-btn" aria-label="Menü" aria-expanded="false"><i></i><i></i></button>
+        </div>
+    </header>
+
+    <div class="menu" id="menu">
+        <nav>
+            <a href="index.html"><span class="mono">00</span><span>Start</span></a>
+            <a href="leistungen.html"><span class="mono">01</span><span data-i18n="nav.services">Leistungen</span></a>
+            <a href="projekte.html"><span class="mono">02</span><span data-i18n="nav.work">Projekte</span></a>
+            <a href="ueber-mich.html"><span class="mono">03</span><span data-i18n="nav.about">Über mich</span></a>
+            <a href="spiel.html"><span class="mono">04</span><span data-i18n="nav.game">Spiel</span></a>
+            <a href="kontakt.html"><span class="mono">05</span><span data-i18n="nav.contact">Kontakt</span></a>
+        </nav>
+        <div class="mono muted">Dresden, DE · <span class="js-time">--:--</span></div>
+    </div>
+
+    <main>
+        <header class="wrap page-head">
+            <div class="eyebrow mono fade-in" style="--d:.1s"><b>( 01 )</b><span data-i18n="nav.services">Leistungen</span></div>
+            <h1 class="page-title" data-split data-i18n="services.title">Was ich <em>anbiete</em></h1>
+            <p class="lead fade-in" style="--d:.5s" data-i18n="services.lead">Für Vereine, Selbstständige und Unternehmen aus der Region – persönlich, unkompliziert und ohne Agentur-Overhead.</p>
+        </header>
+
+        <section class="section section-tight">
+            <div class="wrap">
+                <div class="services">
+                <div class="service reveal">
+                    <button class="service-head" aria-expanded="false">
+                        <span class="service-num">01</span>
+                        <span class="service-title" data-i18n="s1.t">Neue Website</span>
+                        <span class="service-icon"></span>
+                    </button>
+                    <div class="service-body"><div><div class="service-inner">
+                        <p data-i18n="s1.d">Vom ersten Gespräch bis zum Livegang: Struktur, Design und saubere Umsetzung – responsiv auf jedem Gerät und so gebaut, dass sie lange Freude macht.</p>
+                        <div class="tags"><span data-i18n="s1.a">Konzept</span><span>Design</span><span data-i18n="s1.c">Umsetzung</span></div>
+                    </div></div></div>
+                </div>
+                <div class="service reveal">
+                    <button class="service-head" aria-expanded="false">
+                        <span class="service-num">02</span>
+                        <span class="service-title" data-i18n="s2.t">Relaunch</span>
+                        <span class="service-icon"></span>
+                    </button>
+                    <div class="service-body"><div><div class="service-inner">
+                        <p data-i18n="s2.d">Die bestehende Seite ist in die Jahre gekommen? Ich modernisiere Design, Ladezeit und Navigation – die Inhalte bleiben, der erste Eindruck wird neu.</p>
+                        <div class="tags"><span data-i18n="s2.a">Analyse</span><span>Redesign</span><span>Performance</span></div>
+                    </div></div></div>
+                </div>
+                <div class="service reveal">
+                    <button class="service-head" aria-expanded="false">
+                        <span class="service-num">03</span>
+                        <span class="service-title" data-i18n="s3.t">Onepager &amp; Landingpage</span>
+                        <span class="service-icon"></span>
+                    </button>
+                    <div class="service-body"><div><div class="service-inner">
+                        <p data-i18n="s3.d">Eine Seite, ein Ziel: für Events, Angebote oder den schnellen Start ins Netz – kompakt, überzeugend und schnell online.</p>
+                        <div class="tags"><span>Events</span><span data-i18n="s3.b">Angebote</span><span data-i18n="s3.c">Schneller Start</span></div>
+                    </div></div></div>
+                </div>
+                <div class="service reveal">
+                    <button class="service-head" aria-expanded="false">
+                        <span class="service-num">04</span>
+                        <span class="service-title" data-i18n="s4.t">Betreuung</span>
+                        <span class="service-icon"></span>
+                    </button>
+                    <div class="service-body"><div><div class="service-inner">
+                        <p data-i18n="s4.d">Neue Inhalte, kleine Änderungen oder Erweiterungen – auch nach dem Launch bin ich direkt ansprechbar, ohne Ticketsystem und Warteschleife.</p>
+                        <div class="tags"><span data-i18n="s4.a">Pflege</span><span data-i18n="s4.b">Erweiterungen</span><span data-i18n="s4.c">Direkter Kontakt</span></div>
+                    </div></div></div>
+                </div>
+                </div>
+                <div class="principles reveal">
+                    <ul>
+                        <li data-i18n="p.1">Responsiv auf jedem Gerät</li>
+                        <li data-i18n="p.2">Schnelle Ladezeiten</li>
+                        <li data-i18n="p.3">DSGVO-freundlich</li>
+                        <li data-i18n="p.4">Kein Baukasten</li>
+                    </ul>
+                    <a href="kontakt.html" class="u-link"><span data-i18n="services.cta">Unverbindlich anfragen</span> →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-tight">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="eyebrow mono reveal"><b>( 02 )</b><span data-i18n="process.eyebrow">Ablauf</span></div>
+                    <h2 class="title" data-split data-i18n="process.title">So <em>läuft’s</em> ab</h2>
+                </div>
+                <div class="process">
+                <div class="p-step reveal" style="--delay:0.00s">
+                    <span class="mono">01</span>
+                    <h3 data-i18n="ps1.t">Kennenlernen</h3>
+                    <p data-i18n="ps1.d">Wir sprechen über dein Vorhaben, deine Ziele und darüber, was die Seite können soll.</p>
+                </div>
+                <div class="p-step reveal" style="--delay:0.12s">
+                    <span class="mono">02</span>
+                    <h3 data-i18n="ps2.t">Konzept &amp; Design</h3>
+                    <p data-i18n="ps2.d">Ich entwerfe Struktur und Gestaltung – du gibst Feedback, bis alles passt.</p>
+                </div>
+                <div class="p-step reveal" style="--delay:0.24s">
+                    <span class="mono">03</span>
+                    <h3 data-i18n="ps3.t">Umsetzung</h3>
+                    <p data-i18n="ps3.d">Saubere, schnelle Umsetzung, getestet auf Handy, Tablet und Desktop.</p>
+                </div>
+                <div class="p-step reveal" style="--delay:0.36s">
+                    <span class="mono">04</span>
+                    <h3 data-i18n="ps4.t">Launch &amp; danach</h3>
+                    <p data-i18n="ps4.d">Die Seite geht online – und ich bleibe für Änderungen ansprechbar.</p>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-tight">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="eyebrow mono reveal"><b>( 03 )</b>FAQ</div>
+                    <h2 class="title" data-split data-i18n="faq.title">Häufige <em>Fragen</em></h2>
+                </div>
+                <div class="services faq">
+                <div class="service reveal">
+                    <button class="service-head" aria-expanded="false">
+                        <span class="service-title" data-i18n="q1.q">Was kostet eine Website?</span>
+                        <span class="service-icon"></span>
+                    </button>
+                    <div class="service-body"><div><div class="service-inner">
+                        <p data-i18n="q1.a">Das hängt vom Umfang ab. Nach einem kurzen Gespräch bekommst du ein klares Angebot – ohne versteckte Kosten.</p>
+                    </div></div></div>
+                </div>
+                <div class="service reveal">
+                    <button class="service-head" aria-expanded="false">
+                        <span class="service-title" data-i18n="q2.q">Wie lange dauert es?</span>
+                        <span class="service-icon"></span>
+                    </button>
+                    <div class="service-body"><div><div class="service-inner">
+                        <p data-i18n="q2.a">Auch das hängt vom Umfang ab. Einen realistischen Zeitplan legen wir gleich zu Beginn gemeinsam fest.</p>
+                    </div></div></div>
+                </div>
+                <div class="service reveal">
+                    <button class="service-head" aria-expanded="false">
+                        <span class="service-title" data-i18n="q3.q">Brauche ich schon Domain und Hosting?</span>
+                        <span class="service-icon"></span>
+                    </button>
+                    <div class="service-body"><div><div class="service-inner">
+                        <p data-i18n="q3.a">Nein. Ich helfe dir bei Auswahl und Einrichtung – oder wir nutzen, was du schon hast.</p>
+                    </div></div></div>
+                </div>
+                <div class="service reveal">
+                    <button class="service-head" aria-expanded="false">
+                        <span class="service-title" data-i18n="q4.q">Kann die Seite später erweitert werden?</span>
+                        <span class="service-icon"></span>
+                    </button>
+                    <div class="service-body"><div><div class="service-inner">
+                        <p data-i18n="q4.a">Ja. Die Seiten sind so aufgebaut, dass neue Inhalte und Unterseiten jederzeit dazukommen können.</p>
+                    </div></div></div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <a href="projekte.html" class="next-page">
+            <div>
+                <span class="mono" data-i18n="np.next">Weiter</span>
+                <span class="np-title" data-i18n="nav.work">Projekte</span>
+            </div>
+            <span class="np-arrow">→</span>
+        </a>
+    </main>
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <p class="mono muted" data-i18n="footer.claim">Gestaltet &amp; entwickelt in Dresden</p>
+                <div class="footer-links">
+                    <a href="leistungen.html" class="u-link" data-i18n="nav.services">Leistungen</a>
+                    <a href="projekte.html" class="u-link" data-i18n="nav.work">Projekte</a>
+                    <a href="ueber-mich.html" class="u-link" data-i18n="nav.about">Über mich</a>
+                    <a href="spiel.html" class="u-link" data-i18n="nav.game">Spiel</a>
+                    <a href="kontakt.html" class="u-link" data-i18n="nav.contact">Kontakt</a>
+                    <a href="https://github.com/leonthn" target="_blank" rel="noopener" class="u-link">GitHub ↗</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="mono">© <span class="js-year">2026</span> Leon Thein</span>
+                <span class="mono" data-i18n="footer.hint">Tipp: ⌘K</span>
+            </div>
+        </div>
+    </footer>
+
+    <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Suche" hidden>
+        <div class="palette-bg" data-close></div>
+        <div class="palette-box">
+            <div class="palette-input">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input type="text" id="palette-input" autocomplete="off" spellcheck="false">
+                <kbd>esc</kbd>
+            </div>
+            <ul class="palette-list" id="palette-list" role="listbox"></ul>
+            <div class="palette-foot mono"><span>↑↓</span><span>↵</span><span>esc</span></div>
+        </div>
+    </div>
+
+    <canvas id="burst" aria-hidden="true"></canvas>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>

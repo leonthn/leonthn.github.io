@@ -2,13 +2,246 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Über mich – Leon Thein</title>
-    <meta name="robots" content="noindex">
-    <link rel="canonical" href="https://leonthn.github.io/#about">
-    <meta http-equiv="refresh" content="0; url=index.html#about">
-    <script>location.replace('index.html#about');</script>
+    <meta name="description" content="Werdegang, Interessen und Zertifikate von Leon Thein aus Dresden.">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta property="og:title" content="Über mich – Leon Thein">
+    <meta property="og:description" content="Werdegang, Interessen und Zertifikate von Leon Thein aus Dresden.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script>
+        (function () {
+            var d = document.documentElement, t = null, l = null;
+            try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch (e) {}
+            if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            if (!l) l = (navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
+            d.setAttribute('data-theme', t);
+            d.setAttribute('data-lang', l);
+            d.classList.add('no-loader');
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;450;500;600&family=Geist+Mono:wght@300;400&family=Instrument+Serif:ital@1&display=swap">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <p>Diese Seite ist umgezogen: <a href="index.html#about">Über mich</a></p>
+<body data-page="ueber-mich">
+    <div class="cursor" id="cursor"><span id="cursor-label"></span></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="nav" id="nav">
+        <a href="index.html" class="brand" aria-label="Leon Thein – Start">
+            <span class="brand-mark">LT</span>
+            <span class="brand-text">Leon Thein</span>
+        </a>
+        <nav class="nav-links" aria-label="Navigation">
+            <a href="leistungen.html" data-i18n="nav.services">Leistungen</a>
+            <a href="projekte.html" data-i18n="nav.work">Projekte</a>
+            <a href="ueber-mich.html" class="active" aria-current="page" data-i18n="nav.about">Über mich</a>
+            <a href="spiel.html" data-i18n="nav.game">Spiel</a>
+            <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="pill-btn kbd-btn" id="palette-open" aria-label="Suche"><span id="kbd-label">⌘K</span></button>
+            <button class="pill-btn lang-btn" id="lang-btn" aria-label="Sprache wechseln / switch language"><b>DE</b><span>/</span><span>EN</span></button>
+            <button class="pill-btn theme-btn" id="theme-btn" aria-label="Hell/Dunkel">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
+            </button>
+            <button class="pill-btn menu-btn" id="menu-btn" aria-label="Menü" aria-expanded="false"><i></i><i></i></button>
+        </div>
+    </header>
+
+    <div class="menu" id="menu">
+        <nav>
+            <a href="index.html"><span class="mono">00</span><span>Start</span></a>
+            <a href="leistungen.html"><span class="mono">01</span><span data-i18n="nav.services">Leistungen</span></a>
+            <a href="projekte.html"><span class="mono">02</span><span data-i18n="nav.work">Projekte</span></a>
+            <a href="ueber-mich.html"><span class="mono">03</span><span data-i18n="nav.about">Über mich</span></a>
+            <a href="spiel.html"><span class="mono">04</span><span data-i18n="nav.game">Spiel</span></a>
+            <a href="kontakt.html"><span class="mono">05</span><span data-i18n="nav.contact">Kontakt</span></a>
+        </nav>
+        <div class="mono muted">Dresden, DE · <span class="js-time">--:--</span></div>
+    </div>
+
+    <main>
+        <header class="wrap page-head">
+            <div class="eyebrow mono fade-in" style="--d:.1s"><b>( 03 )</b><span data-i18n="nav.about">Über mich</span></div>
+            <h1 class="page-title" data-split data-i18n="about.title">Neugierig <em>seit</em> der Grundschule</h1>
+            <p class="lead fade-in" style="--d:.5s" data-i18n="about.text">Angefangen hat alles mit der Faszination für Computer. Heute baue ich Websites, schreibe kleine Python-Tools und organisiere Projekte, bei denen am Ende echte Zahlen stehen. Ich mag es, Dinge zu Ende zu denken – vom ersten Entwurf bis zum letzten Detail.</p>
+        </header>
+
+        <section class="section section-tight">
+            <div class="wrap about-grid">
+                <div class="sticky-side">
+                    <div class="eyebrow mono reveal"><b>( A )</b><span data-i18n="drive.eyebrow">Interessen</span></div>
+                    <h2 class="title" data-split data-i18n="drive.title">Was mich <em>antreibt</em></h2>
+                </div>
+                <div>
+                    <div class="interest reveal">
+                        <span class="mono">01</span>
+                        <h3 data-i18n="i1.t">Technologie &amp; KI</h3>
+                        <p data-i18n="i1.d">Wie neue Technologien Lernen und Arbeiten verändern – dazu habe ich meine komplexe Leistung geschrieben.</p>
+                    </div>
+                    <div class="interest reveal">
+                        <span class="mono">02</span>
+                        <h3 data-i18n="i2.t">Web-Entwicklung</h3>
+                        <p data-i18n="i2.d">HTML, CSS und JavaScript – mit dem Anspruch, dass sich eine Seite nicht nur gut ansieht, sondern auch gut anfühlt.</p>
+                    </div>
+                    <div class="interest reveal">
+                        <span class="mono">03</span>
+                        <h3 data-i18n="i3.t">Märkte &amp; Investieren</h3>
+                        <p data-i18n="i3.d">Verstehen, wie Unternehmen Wert schaffen – und langfristig denken statt kurzfristig spekulieren.</p>
+                    </div>
+                    <div class="interest reveal">
+                        <span class="mono">04</span>
+                        <h3 data-i18n="i4.t">Sport</h3>
+                        <p data-i18n="i4.d">Laufen, Rad und Krafttraining. Halbmarathon 2026 gefinisht, nächstes Ziel: Hyrox 2027.</p>
+                    </div>
+                    <div class="skills reveal">
+                        <div>
+                            <h4 class="mono muted" data-i18n="sk.tools">Werkzeuge</h4>
+                            <ul><li>HTML &amp; CSS</li><li>JavaScript</li><li>Python</li><li>Git &amp; GitHub</li><li>Eleventy</li></ul>
+                        </div>
+                        <div>
+                            <h4 class="mono muted" data-i18n="sk.lang">Sprachen</h4>
+                            <ul><li><span data-i18n="sk.de">Deutsch</span><span>C2</span></li><li><span data-i18n="sk.en">Englisch</span><span>C1</span></li></ul>
+                        </div>
+                        <div>
+                            <h4 class="mono muted" data-i18n="sk.str">Stärken</h4>
+                            <ul><li data-i18n="sk.s1">Analytisches Denken</li><li data-i18n="sk.s2">Eigeninitiative</li><li data-i18n="sk.s3">Organisation</li><li data-i18n="sk.s4">Teamfähigkeit</li></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-tight" id="werdegang">
+            <div class="wrap about-grid">
+                <div class="sticky-side">
+                    <div class="eyebrow mono reveal"><b>( B )</b><span data-i18n="journey.eyebrow">Werdegang</span></div>
+                    <div class="year-display"><span class="odo" id="year-odo" data-odo="2015" data-plain data-instant></span></div>
+                    <p class="mono year-label" id="year-label"></p>
+                </div>
+                <ol class="steps" id="steps">
+                    <li class="step reveal" data-year="2015">
+                        <span class="mono">2015 – 2019</span>
+                        <div><h3 data-i18n="j1.t">74. Grundschule Dresden</h3><p data-i18n="j1.d">Der Anfang – und die erste Faszination für Computer und Technik.</p></div>
+                    </li>
+                    <li class="step reveal" data-year="2019">
+                        <span class="mono" data-i18n="j2.y">seit 2019</span>
+                        <div><h3 data-i18n="j2.t">Tschirnhaus-Gymnasium Dresden</h3><p data-i18n="j2.d">Informatikunterricht, erste eigene Projekte und das erste Interesse an Wirtschaft und Märkten.</p></div>
+                    </li>
+                    <li class="step reveal" data-year="2025">
+                        <span class="mono">2024 / 25</span>
+                        <div><h3 data-i18n="j3.t">Wissenschaftliche Arbeit über KI</h3><p data-i18n="j3.d">Komplexe Leistung zur KI-gestützten Hyperpersonalisierung in der Bildung und den Folgen für den Arbeitsmarkt.</p></div>
+                    </li>
+                    <li class="step reveal" data-year="2026">
+                        <span class="mono">2025 / 26</span>
+                        <div><h3 data-i18n="j4.t">Das Lehrerkarten-Projekt</h3><p data-i18n="j4.d">Über 15.000 verkaufte Karten und mehr als 10.000 € Umsatz – und viel gelernt über Organisation und Verantwortung.</p></div>
+                    </li>
+                    <li class="step reveal" data-year="2026">
+                        <span class="mono">Aug 2026</span>
+                        <div><h3 data-i18n="j5.t">Google AI Essentials</h3><p data-i18n="j5.d">Fünf Kurse von Google über Coursera – von den Grundlagen bis zum verantwortungsvollen Einsatz von KI.</p></div>
+                    </li>
+                    <li class="step reveal" data-year="2026">
+                        <span class="mono">Sep 2026</span>
+                        <div><h3 data-i18n="j8.t">Erste Websites für Verein &amp; Unternehmen</h3><p data-i18n="j8.d">Entwurf für eine Judo-Abteilung und ein Relaunch für ein mittelständisches Unternehmen.</p></div>
+                    </li>
+                    <li class="step reveal planned" data-year="2027" data-planned="geplant">
+                        <span class="mono" data-i18n="j6.y">Sommer 2027</span>
+                        <div><h3 data-i18n="j6.t">Abitur</h3><p data-i18n="j6.d">Leistungskurse Deutsch und Englisch.</p></div>
+                    </li>
+                    <li class="step reveal planned" data-year="2027" data-planned="geplant">
+                        <span class="mono" data-i18n="j7.y">ab 2027</span>
+                        <div><h3 data-i18n="j7.t">Duales Studium Wirtschaftsinformatik</h3><p data-i18n="j7.d">Theorie und Praxis direkt verbinden – Technologie, Wirtschaft und Projekte in einem.</p></div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section section-tight" id="zertifikate">
+            <div class="wrap">
+                <div class="section-head">
+                    <div class="eyebrow mono reveal"><b>( C )</b><span data-i18n="cert.eyebrow">Weiterbildung</span></div>
+                    <h2 class="title" data-split data-i18n="cert.title">Zerti<em>fiziert</em></h2>
+                </div>
+                <div class="cert reveal">
+                    <div class="cert-visual">
+                        <div class="cert-card" id="cert-card">
+                            <div class="c-top">
+                                <svg width="36" height="36" viewBox="0 0 48 48" aria-hidden="true"><path fill="currentColor" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.8-2.1 5.1-4.4 6.7v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.2zM24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.7 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41.1 15.5 46 24 46zM11.8 28.3c-.4-1.3-.7-2.8-.7-4.3s.3-3 .7-4.3V14H4.5C3 17 2 20.4 2 24s1 7 2.5 10l7.3-5.7zM24 10.8c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.5 2 8.1 6.9 4.5 14l7.3 5.7c1.7-5.2 6.5-8.9 12.2-8.9z" opacity=".9"/></svg>
+                                <span class="mono muted">Specialization</span>
+                            </div>
+                            <div>
+                                <p class="mono muted" style="margin-bottom:8px">Leon Thein</p>
+                                <p class="c-name">Google AI Essentials</p>
+                            </div>
+                            <div class="c-foot"><span class="mono">06.08.2026</span><span class="c-seal">5/5</span></div>
+                        </div>
+                    </div>
+                    <div class="cert-info">
+                        <span class="mono muted" data-i18n="cert.meta">Spezialisierung · Google über Coursera</span>
+                        <h3>Google AI Essentials</h3>
+                        <p data-i18n="cert.d">Wie KI funktioniert, wie man sie sinnvoll und produktiv einsetzt und wo ihre Grenzen und Risiken liegen. Alle fünf Kurse abgeschlossen.</p>
+                        <ul class="courses">
+                            <li><a href="https://coursera.org/verify/SYPOKMHGHLF2" target="_blank" rel="noopener"><span class="mono">01</span><span>Introduction to AI</span><span class="go">↗</span></a></li>
+                            <li><a href="https://coursera.org/verify/J980RC536F7V" target="_blank" rel="noopener"><span class="mono">02</span><span>Maximize Productivity With AI Tools</span><span class="go">↗</span></a></li>
+                            <li><a href="https://coursera.org/verify/RA6GVE2VVZP7" target="_blank" rel="noopener"><span class="mono">03</span><span>Discover the Art of Prompting</span><span class="go">↗</span></a></li>
+                            <li><a href="https://coursera.org/verify/9DR2O7ZMNNR5" target="_blank" rel="noopener"><span class="mono">04</span><span>Use AI Responsibly</span><span class="go">↗</span></a></li>
+                            <li><a href="https://coursera.org/verify/DCRRRL1DJDZ8" target="_blank" rel="noopener"><span class="mono">05</span><span>Stay Ahead of the AI Curve</span><span class="go">↗</span></a></li>
+                        </ul>
+                        <a href="https://coursera.org/verify/specialization/M9HUGA17QU3M" target="_blank" rel="noopener" class="btn magnetic"><span data-i18n="cert.verify">Zertifikat verifizieren</span><span class="arrow">↗</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <a href="kontakt.html" class="next-page">
+            <div>
+                <span class="mono" data-i18n="np.next">Weiter</span>
+                <span class="np-title" data-i18n="nav.contact">Kontakt</span>
+            </div>
+            <span class="np-arrow">→</span>
+        </a>
+    </main>
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <p class="mono muted" data-i18n="footer.claim">Gestaltet &amp; entwickelt in Dresden</p>
+                <div class="footer-links">
+                    <a href="leistungen.html" class="u-link" data-i18n="nav.services">Leistungen</a>
+                    <a href="projekte.html" class="u-link" data-i18n="nav.work">Projekte</a>
+                    <a href="ueber-mich.html" class="u-link" data-i18n="nav.about">Über mich</a>
+                    <a href="spiel.html" class="u-link" data-i18n="nav.game">Spiel</a>
+                    <a href="kontakt.html" class="u-link" data-i18n="nav.contact">Kontakt</a>
+                    <a href="https://github.com/leonthn" target="_blank" rel="noopener" class="u-link">GitHub ↗</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="mono">© <span class="js-year">2026</span> Leon Thein</span>
+                <span class="mono" data-i18n="footer.hint">Tipp: ⌘K</span>
+            </div>
+        </div>
+    </footer>
+
+    <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Suche" hidden>
+        <div class="palette-bg" data-close></div>
+        <div class="palette-box">
+            <div class="palette-input">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input type="text" id="palette-input" autocomplete="off" spellcheck="false">
+                <kbd>esc</kbd>
+            </div>
+            <ul class="palette-list" id="palette-list" role="listbox"></ul>
+            <div class="palette-foot mono"><span>↑↓</span><span>↵</span><span>esc</span></div>
+        </div>
+    </div>
+
+    <canvas id="burst" aria-hidden="true"></canvas>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

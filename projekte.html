@@ -2,13 +2,225 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Projekte – Leon Thein</title>
-    <meta name="robots" content="noindex">
-    <link rel="canonical" href="https://leonthn.github.io/#projekte">
-    <meta http-equiv="refresh" content="0; url=index.html#projekte">
-    <script>location.replace('index.html#projekte');</script>
+    <meta name="description" content="Ausgewählte Projekte von Leon Thein: Websites, Python-Tools und das Lehrerkarten-Projekt.">
+    <meta name="theme-color" content="#0a0a0a">
+    <meta property="og:title" content="Projekte – Leon Thein">
+    <meta property="og:description" content="Ausgewählte Projekte von Leon Thein: Websites, Python-Tools und das Lehrerkarten-Projekt.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <script>
+        (function () {
+            var d = document.documentElement, t = null, l = null;
+            try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch (e) {}
+            if (!t) t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            if (!l) l = (navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
+            d.setAttribute('data-theme', t);
+            d.setAttribute('data-lang', l);
+            d.classList.add('no-loader');
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;450;500;600&family=Geist+Mono:wght@300;400&family=Instrument+Serif:ital@1&display=swap">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <p>Diese Seite ist umgezogen: <a href="index.html#projekte">Projekte</a></p>
+<body data-page="projekte">
+    <div class="cursor" id="cursor"><span id="cursor-label"></span></div>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="nav" id="nav">
+        <a href="index.html" class="brand" aria-label="Leon Thein – Start">
+            <span class="brand-mark">LT</span>
+            <span class="brand-text">Leon Thein</span>
+        </a>
+        <nav class="nav-links" aria-label="Navigation">
+            <a href="leistungen.html" data-i18n="nav.services">Leistungen</a>
+            <a href="projekte.html" class="active" aria-current="page" data-i18n="nav.work">Projekte</a>
+            <a href="ueber-mich.html" data-i18n="nav.about">Über mich</a>
+            <a href="spiel.html" data-i18n="nav.game">Spiel</a>
+            <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="pill-btn kbd-btn" id="palette-open" aria-label="Suche"><span id="kbd-label">⌘K</span></button>
+            <button class="pill-btn lang-btn" id="lang-btn" aria-label="Sprache wechseln / switch language"><b>DE</b><span>/</span><span>EN</span></button>
+            <button class="pill-btn theme-btn" id="theme-btn" aria-label="Hell/Dunkel">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
+            </button>
+            <button class="pill-btn menu-btn" id="menu-btn" aria-label="Menü" aria-expanded="false"><i></i><i></i></button>
+        </div>
+    </header>
+
+    <div class="menu" id="menu">
+        <nav>
+            <a href="index.html"><span class="mono">00</span><span>Start</span></a>
+            <a href="leistungen.html"><span class="mono">01</span><span data-i18n="nav.services">Leistungen</span></a>
+            <a href="projekte.html"><span class="mono">02</span><span data-i18n="nav.work">Projekte</span></a>
+            <a href="ueber-mich.html"><span class="mono">03</span><span data-i18n="nav.about">Über mich</span></a>
+            <a href="spiel.html"><span class="mono">04</span><span data-i18n="nav.game">Spiel</span></a>
+            <a href="kontakt.html"><span class="mono">05</span><span data-i18n="nav.contact">Kontakt</span></a>
+        </nav>
+        <div class="mono muted">Dresden, DE · <span class="js-time">--:--</span></div>
+    </div>
+
+    <main>
+        <header class="wrap page-head">
+            <div class="eyebrow mono fade-in" style="--d:.1s"><b>( 02 )</b><span data-i18n="nav.work">Projekte</span></div>
+            <h1 class="page-title" data-split data-i18n="work.title">Ausgewählte <em>Arbeiten</em></h1>
+            <p class="lead fade-in" style="--d:.5s" data-i18n="work.lead">Ein Querschnitt aus Websites, Code und Projekten, auf die ich stolz bin.</p>
+        </header>
+
+        <section class="section section-tight">
+            <div class="wrap">
+                <div class="filters reveal" role="group" aria-label="Filter"><button class="chip active" data-filter="all"><span data-i18n="f.all">Alle</span><sup></sup></button><button class="chip" data-filter="web"><span data-i18n="f.web">Web</span><sup></sup></button><button class="chip" data-filter="code"><span data-i18n="f.code">Code</span><sup></sup></button><button class="chip" data-filter="projekt"><span data-i18n="f.proj">Projekte</span><sup></sup></button><button class="chip" data-filter="forschung"><span data-i18n="f.res">Forschung</span><sup></sup></button></div>
+                <div class="grid-projects" id="projects">
+                    <article class="project project-wide reveal" data-cat="projekt" data-cursor="Case Study">
+                        <a href="projekt-lehrerkarten.html" class="project-art" aria-label="Case Study">
+                        <div class="art-cards">
+                            <div class="mini-card" style="--r:-14deg;--x:-34%"></div>
+                            <div class="mini-card" style="--r:12deg;--x:34%"></div>
+                            <div class="mini-card" style="--r:-2deg;--x:0%"></div>
+                        </div>
+                        </a>
+                        <div class="project-info">
+                        <div class="project-top mono"><span>01</span><span data-i18n="w1.meta">Projektleitung · 2025/26</span></div>
+                        <h3 data-i18n="w1.t">Das Lehrerkarten-Projekt</h3>
+                        <p data-i18n="w1.d">Ein Sammelkarten-Trend mit unseren Lehrkräften als Trading Cards – von der Planung über Marketing bis zum Verkauf selbst organisiert. Über 15.000 Karten, mehr als 10.000 € für die Abikasse.</p>
+                        <div class="tags"><span data-i18n="w1.a">Projektmanagement</span><span>Marketing</span><span data-i18n="w1.c">Finanzen</span></div>
+                        <div class="project-links"><a href="projekt-lehrerkarten.html" class="u-link"><span data-i18n="w1.l">Case Study lesen</span> →</a></div>
+                    </div>
+                    </article>
+
+                    <article class="project reveal" data-cat="web">
+                        <div class="project-art">
+                        <div class="art-browser">
+                            <div class="bar"><i></i><i></i><i></i></div>
+                            <div class="body">
+                                <span class="now-pill"><span class="dot"></span><span data-i18n="w2.next">Nächstes Training</span></span>
+                                <div class="sched"><span>MO</span><i style="--w:62%"></i></div>
+                                <div class="sched now"><span>DI</span><i style="--w:80%"></i></div>
+                                <div class="sched"><span>MI</span><i style="--w:45%"></i></div>
+                                <div class="sched"><span>DO</span><i style="--w:72%"></i></div>
+                                <div class="sched"><span>FR</span><i style="--w:55%"></i></div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-top mono"><span>02</span><span class="badge"><span class="dot"></span><span data-i18n="w2.meta">Website · Entwurf</span></span></div>
+                            <h3 data-i18n="w2.t">Judo-Abteilung Grün-Weiß 90</h3>
+                            <p data-i18n="w2.d">Neuer Webauftritt für einen Dresdner Sportverein: Trainingsplan mit Live-Anzeige des nächsten Trainings, Gürtel-Übersicht und News. Statisch, schnell und mit lokal eingebundenen Schriften.</p>
+                            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+                            <div class="project-links">
+                                <a href="https://leonthn.github.io/gw-dd-judo/" target="_blank" rel="noopener" class="u-link"><span data-i18n="w.live">Ansehen</span> ↗</a>
+                                <a href="https://github.com/leonthn/gw-dd-judo" target="_blank" rel="noopener" class="u-link">Code ↗</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project reveal" data-cat="web" style="--delay:.1s">
+                        <div class="project-art">
+                        <div class="art-wire">
+                            <i class="nav-w"></i>
+                            <i class="hero-w"></i>
+                            <div class="row-w"><i></i><i></i><i></i></div>
+                            <div class="row-w"><i></i><i></i><i></i></div>
+                        </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-top mono"><span>03</span><span class="badge"><span class="dot"></span><span data-i18n="w3.meta">Kundenprojekt · in Abstimmung</span></span></div>
+                            <h3 data-i18n="w3.t">Relaunch einer Unternehmenswebsite</h3>
+                            <p data-i18n="w3.d">Kompletter Neuauftritt für ein mittelständisches Unternehmen: über 30 Unterseiten, Mega-Menü, Karrierebereich mit Bewerbungsformular und eine klare, moderne Gestaltung.</p>
+                            <div class="tags"><span>Eleventy</span><span>Responsive</span><span data-i18n="w3.c">Kundenprojekt</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project reveal" data-cat="code">
+                        <div class="project-art">
+                        <svg class="art-pulse" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid meet">
+                            <path class="grid-l" d="M0 75H400M0 150H400M0 225H400M100 0V300M200 0V300M300 0V300"/>
+                            <path pathLength="1" d="M0 160 L60 160 L78 160 L90 110 L104 205 L118 70 L132 185 L146 160 L210 160 L228 160 L240 120 L254 196 L268 84 L282 176 L296 160 L400 160"/>
+                            <circle cx="268" cy="84" r="5"/>
+                        </svg>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-top mono"><span>04</span><span>Python · 2026</span></div>
+                            <h3>Garmin → Obsidian</h3>
+                            <p data-i18n="w4.d">Ein Python-Skript, das Aktivitäten und Gesundheitsdaten aus Garmin Connect lädt und als CSV und Übersicht in meine Notizen schreibt – die Grundlage für eigene Auswertungen.</p>
+                            <div class="tags"><span>Python</span><span>API</span><span data-i18n="w4.c">Datenanalyse</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project reveal" data-cat="forschung" style="--delay:.1s">
+                        <div class="project-art">
+                        <div class="art-paper">
+                            <b data-i18n="w5.paper">KI-gestützte Hyperpersonalisierung in der Bildung</b>
+                            <i></i><i></i><i></i><i></i><i></i>
+                            <span class="seal"></span>
+                        </div>
+                        </div>
+                        <div class="project-info">
+                            <div class="project-top mono"><span>05</span><span data-i18n="w5.meta">Wissenschaftliche Arbeit · 10. Klasse</span></div>
+                            <h3 data-i18n="w5.t">KI in der Bildung</h3>
+                            <p data-i18n="w5.d">Meine komplexe Leistung über KI-gestützte Hyperpersonalisierung in der Bildung und ihre Auswirkungen auf den Arbeitsmarkt – mein erster tiefer Einstieg in das Thema.</p>
+                            <div class="tags"><span data-i18n="w5.a">Recherche</span><span data-i18n="w5.b">KI</span><span data-i18n="w5.c">Arbeitsmarkt</span></div>
+                        </div>
+                    </article>
+
+                    <article class="project project-end reveal" data-cat="all">
+                        <p class="mono muted" style="margin-bottom:20px">( 06 )</p>
+                        <h3 data-i18n="w6.t">Dein Projekt<br>könnte das <em>nächste</em> sein.</h3>
+                        <a href="kontakt.html" class="btn btn-solid magnetic"><span data-i18n="cta.project">Projekt anfragen</span><span class="arrow">→</span></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <a href="ueber-mich.html" class="next-page">
+            <div>
+                <span class="mono" data-i18n="np.next">Weiter</span>
+                <span class="np-title" data-i18n="nav.about">Über mich</span>
+            </div>
+            <span class="np-arrow">→</span>
+        </a>
+    </main>
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <p class="mono muted" data-i18n="footer.claim">Gestaltet &amp; entwickelt in Dresden</p>
+                <div class="footer-links">
+                    <a href="leistungen.html" class="u-link" data-i18n="nav.services">Leistungen</a>
+                    <a href="projekte.html" class="u-link" data-i18n="nav.work">Projekte</a>
+                    <a href="ueber-mich.html" class="u-link" data-i18n="nav.about">Über mich</a>
+                    <a href="spiel.html" class="u-link" data-i18n="nav.game">Spiel</a>
+                    <a href="kontakt.html" class="u-link" data-i18n="nav.contact">Kontakt</a>
+                    <a href="https://github.com/leonthn" target="_blank" rel="noopener" class="u-link">GitHub ↗</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="mono">© <span class="js-year">2026</span> Leon Thein</span>
+                <span class="mono" data-i18n="footer.hint">Tipp: ⌘K</span>
+            </div>
+        </div>
+    </footer>
+
+    <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Suche" hidden>
+        <div class="palette-bg" data-close></div>
+        <div class="palette-box">
+            <div class="palette-input">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input type="text" id="palette-input" autocomplete="off" spellcheck="false">
+                <kbd>esc</kbd>
+            </div>
+            <ul class="palette-list" id="palette-list" role="listbox"></ul>
+            <div class="palette-foot mono"><span>↑↓</span><span>↵</span><span>esc</span></div>
+        </div>
+    </div>
+
+    <canvas id="burst" aria-hidden="true"></canvas>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>

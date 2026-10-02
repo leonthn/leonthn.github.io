@@ -6,6 +6,9 @@
     <title>Case Study: Das Lehrerkarten-Projekt – Leon Thein</title>
     <meta name="description" content="Wie aus einem Sammelkarten-Trend an der Schule über 15.000 verkaufte Karten und mehr als 10.000 € für die Abikasse wurden.">
     <meta name="theme-color" content="#0a0a0a">
+    <meta property="og:title" content="Case Study: Das Lehrerkarten-Projekt – Leon Thein">
+    <meta property="og:description" content="Wie aus einem Sammelkarten-Trend an der Schule über 15.000 verkaufte Karten und mehr als 10.000 € für die Abikasse wurden.">
+    <meta property="og:type" content="website">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <script>
         (function () {
@@ -15,7 +18,7 @@
             if (!l) l = (navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en';
             d.setAttribute('data-theme', t);
             d.setAttribute('data-lang', l);
-            try { if (sessionStorage.getItem('curtain')) d.classList.add('curtain-in'); } catch (e) {}
+            d.classList.add('no-loader');
         })();
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,24 +27,24 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body data-page="case">
-    <div class="curtain" id="curtain"></div>
     <div class="cursor" id="cursor"><span id="cursor-label"></span></div>
     <div class="grain" aria-hidden="true"></div>
 
     <header class="nav" id="nav">
-        <a href="index.html" class="brand" aria-label="Leon Thein">
+        <a href="index.html" class="brand" aria-label="Leon Thein – Start">
             <span class="brand-mark">LT</span>
             <span class="brand-text">Leon Thein</span>
         </a>
         <nav class="nav-links" aria-label="Navigation">
-            <a href="index.html#leistungen" data-i18n="nav.services">Leistungen</a>
-            <a href="index.html#projekte" class="active" data-i18n="nav.work">Projekte</a>
-            <a href="index.html#ueber-mich" data-i18n="nav.about">Über mich</a>
-            <a href="index.html#werdegang" data-i18n="nav.journey">Werdegang</a>
-            <a href="index.html#kontakt" data-i18n="nav.contact">Kontakt</a>
+            <a href="leistungen.html" data-i18n="nav.services">Leistungen</a>
+            <a href="projekte.html" class="active" aria-current="page" data-i18n="nav.work">Projekte</a>
+            <a href="ueber-mich.html" data-i18n="nav.about">Über mich</a>
+            <a href="spiel.html" data-i18n="nav.game">Spiel</a>
+            <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
         </nav>
         <div class="nav-actions">
-            <button class="pill-btn lang-btn" id="lang-btn" aria-label="Sprache wechseln"><b>DE</b><span>/</span><span>EN</span></button>
+            <button class="pill-btn kbd-btn" id="palette-open" aria-label="Suche"><span id="kbd-label">⌘K</span></button>
+            <button class="pill-btn lang-btn" id="lang-btn" aria-label="Sprache wechseln / switch language"><b>DE</b><span>/</span><span>EN</span></button>
             <button class="pill-btn theme-btn" id="theme-btn" aria-label="Hell/Dunkel">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor"/></svg>
             </button>
@@ -51,50 +54,49 @@
 
     <div class="menu" id="menu">
         <nav>
-            <a href="index.html#leistungen"><span class="mono">01</span><span data-i18n="nav.services">Leistungen</span></a>
-            <a href="index.html#projekte"><span class="mono">02</span><span data-i18n="nav.work">Projekte</span></a>
-            <a href="index.html#ueber-mich"><span class="mono">03</span><span data-i18n="nav.about">Über mich</span></a>
-            <a href="index.html#werdegang"><span class="mono">04</span><span data-i18n="nav.journey">Werdegang</span></a>
-            <a href="index.html#kontakt"><span class="mono">05</span><span data-i18n="nav.contact">Kontakt</span></a>
+            <a href="index.html"><span class="mono">00</span><span>Start</span></a>
+            <a href="leistungen.html"><span class="mono">01</span><span data-i18n="nav.services">Leistungen</span></a>
+            <a href="projekte.html"><span class="mono">02</span><span data-i18n="nav.work">Projekte</span></a>
+            <a href="ueber-mich.html"><span class="mono">03</span><span data-i18n="nav.about">Über mich</span></a>
+            <a href="spiel.html"><span class="mono">04</span><span data-i18n="nav.game">Spiel</span></a>
+            <a href="kontakt.html"><span class="mono">05</span><span data-i18n="nav.contact">Kontakt</span></a>
         </nav>
         <div class="mono muted">Dresden, DE · <span class="js-time">--:--</span></div>
     </div>
 
     <main>
-        <section class="case-hero">
-            <div class="wrap">
-                <a href="index.html#projekte" class="back mono" data-i18n="cs.back">← Zurück zu den Projekten</a>
-                <div class="case-hero-grid">
-                    <div>
-                        <div class="eyebrow mono fade-in" style="--d:.1s"><b>( 01 )</b><span data-i18n="cs.eyebrow">Case Study · 2025/26</span></div>
-                        <h1 class="case-title" data-split data-i18n="cs.title">Das Lehrer&shy;karten-<em>Projekt.</em></h1>
-                        <p class="lead fade-in" style="--d:.5s" data-i18n="cs.lead">Wie aus einem Sammelkarten-Trend an unserer Schule über 15.000 verkaufte Karten und mehr als 10.000 € für die Abikasse wurden.</p>
-                    </div>
-                    <div class="fan" aria-hidden="true">
-                        <div class="tcard" style="--r:-16deg;--x:-120px;--y:20px;--i:0"><div class="t-top"><span>#014</span><span>★</span></div><div class="t-img"></div><div class="t-name"></div><div class="t-stars"><i class="on"></i><i></i><i></i></div></div>
-                        <div class="tcard" style="--r:14deg;--x:120px;--y:20px;--i:1"><div class="t-top"><span>#042</span><span>★★</span></div><div class="t-img"></div><div class="t-name"></div><div class="t-stars"><i class="on"></i><i class="on"></i><i></i></div></div>
-                        <div class="tcard gold" style="--r:-2deg;--x:0px;--i:2"><div class="t-top"><span>#001</span><span>★★★</span></div><div class="t-img"></div><div class="t-name"></div><div class="t-stars"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
-                    </div>
+        <section class="wrap page-head" style="padding-bottom:0">
+            <a href="projekte.html" class="back mono" data-i18n="cs.back">← Zurück zu den Projekten</a>
+            <div class="case-hero-grid">
+                <div>
+                    <div class="eyebrow mono fade-in" style="--d:.1s;margin-bottom:30px"><b>( 02 )</b><span data-i18n="cs.eyebrow">Case Study · 2025/26</span></div>
+                    <h1 class="page-title" data-split data-i18n="cs.title">Das Lehrer&shy;karten-<em>Projekt.</em></h1>
+                    <p class="lead fade-in" style="--d:.5s;margin-top:36px" data-i18n="cs.lead">Wie aus einem Sammelkarten-Trend an unserer Schule über 15.000 verkaufte Karten und mehr als 10.000 € für die Abikasse wurden.</p>
                 </div>
-                <div class="case-meta fade-in" style="--d:.7s">
-                    <div><span class="mono muted" data-i18n="cs.role">Rolle</span><span data-i18n="cs.role.v">Projektleitung</span></div>
-                    <div><span class="mono muted" data-i18n="cs.partner">Partner</span><span>Lehrerkarten.de</span></div>
-                    <div><span class="mono muted" data-i18n="cs.areas">Bereiche</span><span data-i18n="cs.areas.v">Planung · Marketing · Vertrieb · Finanzen</span></div>
+                <div class="fan" aria-hidden="true">
+                    <div class="tcard" style="--r:-16deg;--x:-120px;--y:20px;--i:0"><div class="t-top"><span>#014</span><span>★</span></div><div class="t-img"></div><div class="t-name"></div><div class="t-stars"><i class="on"></i><i></i><i></i></div></div>
+                    <div class="tcard" style="--r:14deg;--x:120px;--y:20px;--i:1"><div class="t-top"><span>#042</span><span>★★</span></div><div class="t-img"></div><div class="t-name"></div><div class="t-stars"><i class="on"></i><i class="on"></i><i></i></div></div>
+                    <div class="tcard gold" style="--r:-2deg;--x:0px;--i:2"><div class="t-top"><span>#001</span><span>★★★</span></div><div class="t-img"></div><div class="t-name"></div><div class="t-stars"><i class="on"></i><i class="on"></i><i class="on"></i></div></div>
                 </div>
+            </div>
+            <div class="case-meta fade-in" style="--d:.7s">
+                <div><span class="mono muted" data-i18n="cs.role">Rolle</span><span data-i18n="cs.role.v">Projektleitung</span></div>
+                <div><span class="mono muted" data-i18n="cs.partner">Partner</span><span>Lehrerkarten.de</span></div>
+                <div><span class="mono muted" data-i18n="cs.areas">Bereiche</span><span data-i18n="cs.areas.v">Planung · Marketing · Vertrieb · Finanzen</span></div>
             </div>
         </section>
 
-        <div class="wrap">
+        <div class="wrap" style="margin-top:clamp(70px,10vw,130px)">
             <div class="case-stats">
-                <div class="fact reveal">
+                <div class="fact reveal" style="--delay:0s">
                     <div class="fact-num"><span class="odo" data-odo="15000"></span><small>+</small></div>
                     <p data-i18n="cs.f1">verkaufte Karten</p>
                 </div>
-                <div class="fact reveal" style="--delay:.1s">
+                <div class="fact reveal" style="--delay:0.1s">
                     <div class="fact-num"><small>&gt;</small><span class="odo" data-odo="10000"></span><small>€</small></div>
                     <p data-i18n="cs.f2">Umsatz</p>
                 </div>
-                <div class="fact reveal" style="--delay:.2s">
+                <div class="fact reveal" style="--delay:0.2s">
                     <div class="fact-num"><span class="odo" data-odo="100"></span><small>%</small></div>
                     <p data-i18n="cs.f3">eigenständig organisiert – von der Idee bis zur Abrechnung</p>
                 </div>
@@ -102,79 +104,92 @@
 
             <div class="case-body">
                 <aside class="toc" aria-label="Inhalt">
-                    <a href="#herausforderung" data-i18n="cs.toc1">Die Herausforderung</a>
-                    <a href="#idee" data-i18n="cs.toc2">Die Idee</a>
-                    <a href="#umsetzung" data-i18n="cs.toc3">Die Umsetzung</a>
-                    <a href="#ergebnis" data-i18n="cs.toc4">Das Ergebnis</a>
-                    <a href="#learnings" data-i18n="cs.toc5">Was ich gelernt habe</a>
+                    <a href="#herausforderung" data-i18n="cs.h1">Die Herausforderung</a>
+                    <a href="#idee" data-i18n="cs.h2">Die Idee</a>
+                    <a href="#umsetzung" data-i18n="cs.h3">Die Umsetzung</a>
+                    <a href="#ergebnis" data-i18n="cs.h4">Das Ergebnis</a>
+                    <a href="#learnings" data-i18n="cs.h5">Was ich gelernt habe</a>
                 </aside>
-
                 <div class="case-content">
                     <section id="herausforderung">
                         <h2 data-split data-i18n="cs.h1">Die Herausforderung</h2>
                         <p class="reveal" data-i18n="cs.p1">Einen Abiball zu finanzieren ist für jeden Jahrgang eine große Hürde. Die klassischen Wege – Kuchenbasar, Waffelverkauf – bedeuten viel Aufwand für wenig Geld. Ich wollte etwas, das <strong>skalierbar</strong> ist, richtig Geld einbringt und gleichzeitig die ganze Schule mitnimmt.</p>
                     </section>
-
                     <section id="idee">
                         <h2 data-split data-i18n="cs.h2">Die Idee</h2>
                         <p class="reveal" data-i18n="cs.p2">Ein schulinterner Sammelkarten-Trend – wie Fußball-Sammelbilder, nur mit <strong>unseren eigenen Lehrerinnen und Lehrern</strong> als Trading Cards. Zusammen mit <strong>Lehrerkarten.de</strong> entstanden blickdichte Booster-Packs. Niemand weiß, wen er zieht, alle wollen tauschen – und genau das hat auf dem Pausenhof einen echten Hype ausgelöst.</p>
-                        <div class="pack" aria-hidden="true">
-                            <div class="flip" style="--i:0"><div class="tcard"><div class="t-top"><span>#003</span></div><div class="t-img"></div><div class="t-name"></div></div><div class="t-back"><span>LK</span></div></div>
-                            <div class="flip" style="--i:1"><div class="tcard"><div class="t-top"><span>#027</span></div><div class="t-img"></div><div class="t-name"></div></div><div class="t-back"><span>LK</span></div></div>
-                            <div class="flip" style="--i:2"><div class="tcard gold"><div class="t-top"><span>#001</span><span>★</span></div><div class="t-img"></div><div class="t-name"></div></div><div class="t-back"><span>LK</span></div></div>
-                            <div class="flip" style="--i:3"><div class="tcard"><div class="t-top"><span>#058</span></div><div class="t-img"></div><div class="t-name"></div></div><div class="t-back"><span>LK</span></div></div>
-                            <div class="flip" style="--i:4"><div class="tcard"><div class="t-top"><span>#011</span></div><div class="t-img"></div><div class="t-name"></div></div><div class="t-back"><span>LK</span></div></div>
-                        </div>
+                        <div class="pack" aria-hidden="true"><div class="flip" style="--i:0"><div class="tcard"><div class="t-top"><span>#003</span></div><div class="t-img"></div><div class="t-name"></div></div><div class="t-back"><span>LK</span></div></div><div class="flip" style="--i:1"><div class="tcard"><div class="t-top"><span>#027</span></div><div class="t-img"></div><div class="t-name"></div></div><div class="t-back"><span>LK</span></div></div><div class="flip" style="--i:2"><div class="tcard gold"><div class="t-top"><span>#001</span></div><div class="t-img"></div><div class="t-name"></div></div><div class="t-back"><span>LK</span></div></div><div class="flip" style="--i:3"><div class="tcard"><div class="t-top"><span>#058</span></div><div class="t-img"></div><div class="t-name"></div></div><div class="t-back"><span>LK</span></div></div><div class="flip" style="--i:4"><div class="tcard"><div class="t-top"><span>#011</span></div><div class="t-img"></div><div class="t-name"></div></div><div class="t-back"><span>LK</span></div></div></div>
                         <p class="pack-caption mono" data-i18n="cs.pack">Jedes Pack eine Überraschung – genau das hat den Tauschhandel angetrieben.</p>
                     </section>
-
                     <section id="umsetzung">
                         <h2 data-split data-i18n="cs.h3">Die Umsetzung</h2>
                         <p class="reveal" data-i18n="cs.p3">Ich habe das Projekt eigenständig organisiert – von der ersten Anfrage bis zum letzten verkauften Pack.</p>
                         <ol class="case-steps">
                             <li class="reveal"><div><b data-i18n="cs.s1.t">Planung &amp; Abstimmung</b><span data-i18n="cs.s1.d">Projektplan, Gespräche mit Schulleitung und Kollegium, Einverständnis aller Lehrkräfte.</span></div></li>
                             <li class="reveal"><div><b data-i18n="cs.s2.t">Fotoshootings &amp; Design</b><span data-i18n="cs.s2.d">Organisation der Shootings und Abstimmung des Kartendesigns mit dem Partner.</span></div></li>
-                            <li class="reveal"><div><b>Marketing</b><span data-i18n="cs.s3.d">Plakate, Durchsagen und Aktionen in der Schule, damit der Start richtig zündet.</span></div></li>
+                            <li class="reveal"><div><b data-i18n="cs.s3.t">Marketing</b><span data-i18n="cs.s3.d">Plakate, Durchsagen und Aktionen in der Schule, damit der Start richtig zündet.</span></div></li>
                             <li class="reveal"><div><b data-i18n="cs.s4.t">Vertrieb &amp; Finanzen</b><span data-i18n="cs.s4.d">Verkaufsstände, Logistik, Kasse und Abrechnung – sauber dokumentiert für die Abikasse.</span></div></li>
                         </ol>
                     </section>
-
                     <section id="ergebnis">
                         <h2 data-split data-i18n="cs.h4">Das Ergebnis</h2>
                         <p class="reveal" data-i18n="cs.p4">Über <strong>15.000 verkaufte Karten</strong> und mehr als <strong>10.000 € Umsatz</strong> für unseren Jahrgang. Vor allem aber: ein Projekt, über das die ganze Schule gesprochen hat – mit Schlangen am Verkaufsstand und Tauschbörsen in jeder Pause.</p>
                     </section>
-
                     <section id="learnings">
                         <h2 data-split data-i18n="cs.h5">Was ich gelernt habe</h2>
                         <blockquote class="quote reveal" data-i18n="cs.quote">Aus einer kreativen Idee, klarem Projektmanagement und gezieltem Marketing kann ein echtes, funktionierendes Geschäftsmodell werden.</blockquote>
                         <p class="reveal" data-i18n="cs.p5">Ich habe gelernt, Verantwortung für Geld und Menschen zu übernehmen, mit Erwachsenen auf Augenhöhe zu verhandeln und den Überblick zu behalten, wenn vieles gleichzeitig passiert. Genau diese Mischung aus Wirtschaft, Organisation und Technik will ich im dualen Studium weiter ausbauen.</p>
                     </section>
-
-                    <a href="index.html#projekte" class="next" data-transition>
-                        <div>
-                            <p class="mono muted" style="margin-bottom:10px" data-i18n="cs.next">Weiter</p>
-                            <h3 data-i18n="cs.next.t">Alle Projekte</h3>
-                        </div>
-                        <span class="btn btn-solid"><span class="arrow">→</span></span>
-                    </a>
                 </div>
             </div>
         </div>
-    </main>
 
-    <footer class="footer" style="margin-top:120px">
+        <div style="margin-top:clamp(100px,12vw,160px)">
+        <a href="projekte.html" class="next-page">
+            <div>
+                <span class="mono" data-i18n="np.next">Weiter</span>
+                <span class="np-title" data-i18n="cs.next.t">Alle Projekte</span>
+            </div>
+            <span class="np-arrow">→</span>
+        </a>
+        </div>
+    </main>
+    <footer class="footer">
         <div class="wrap">
-            <div class="footer-bottom" style="margin-top:0">
+            <div class="footer-top">
+                <p class="mono muted" data-i18n="footer.claim">Gestaltet &amp; entwickelt in Dresden</p>
+                <div class="footer-links">
+                    <a href="leistungen.html" class="u-link" data-i18n="nav.services">Leistungen</a>
+                    <a href="projekte.html" class="u-link" data-i18n="nav.work">Projekte</a>
+                    <a href="ueber-mich.html" class="u-link" data-i18n="nav.about">Über mich</a>
+                    <a href="spiel.html" class="u-link" data-i18n="nav.game">Spiel</a>
+                    <a href="kontakt.html" class="u-link" data-i18n="nav.contact">Kontakt</a>
+                    <a href="https://github.com/leonthn" target="_blank" rel="noopener" class="u-link">GitHub ↗</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
                 <span class="mono">© <span class="js-year">2026</span> Leon Thein</span>
-                <a href="index.html#kontakt" class="u-link mono" data-i18n="nav.contact">Kontakt</a>
+                <span class="mono" data-i18n="footer.hint">Tipp: ⌘K</span>
             </div>
         </div>
     </footer>
 
+    <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Suche" hidden>
+        <div class="palette-bg" data-close></div>
+        <div class="palette-box">
+            <div class="palette-input">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <input type="text" id="palette-input" autocomplete="off" spellcheck="false">
+                <kbd>esc</kbd>
+            </div>
+            <ul class="palette-list" id="palette-list" role="listbox"></ul>
+            <div class="palette-foot mono"><span>↑↓</span><span>↵</span><span>esc</span></div>
+        </div>
+    </div>
+
     <canvas id="burst" aria-hidden="true"></canvas>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
     <script src="i18n.js" defer></script>
     <script src="script.js" defer></script>
 </body>
